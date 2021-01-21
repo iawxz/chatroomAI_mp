@@ -1,0 +1,71 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "法保网智能客服"
+			}
+		},{
+			"path": "pages/tool_1/legislation",
+			"style": {
+				"navigationBarTitleText": "法规搜索"
+			}
+		},{
+			"path": "pages/tool_1/legislation_detail",
+			"style": {
+				"navigationBarTitleText": "法规详情"
+			}
+		},{
+			"path": "pages/tool_2/case",
+			"style": {
+				"navigationBarTitleText": "案例搜索"
+			}
+		},{
+			"path": "pages/tool_2/case_detail",
+			"style": {
+				"navigationBarTitleText": "案例详情"
+			}
+		},{
+			"path": "pages/tool_3/dispute",
+			"style": {
+				"navigationBarTitleText": "解纷方式"
+			}
+		},{
+			"path": "pages/tool_3/dispute_detail",
+			"style": {
+				"navigationBarTitleText": "解纷详情"
+			}
+		},{
+			"path": "pages/tool_4/aidedtools",
+			"style": {
+				"navigationBarTitleText": "辅助工具"
+			}
+		},{
+			"path": "pages/tool_4/1_lawsuit",
+			"style": {
+				"navigationBarTitleText": "诉讼服务"
+			}
+		},{
+			"path": "pages/tool_4/2_injuries",
+			"style": {
+				"navigationBarTitleText": "工伤赔偿"
+			}
+		},{
+			"path": "pages/tool_4/3_trans",
+			"style": {
+				"navigationBarTitleText": "交通赔偿"
+			}
+		},{
+			"path": "pages/tool_4/4_fee",
+			"style": {
+				"navigationBarTitleText": "律师费用"
+			}
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "#ffffff",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#2083E7",
+		"backgroundColor": "#F8F8F8"
+	}
+}

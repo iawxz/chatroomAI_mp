@@ -1,0 +1,1 @@
+<view class="legislation_detail"><view class="content"><text class="title">{{"问："+detail.title}}</text><view class="keywords"><text>关键词:</text><view class="key">{{detail.parenttype}}</view></view><view class="text"><text>答：</text><view class="textContent">{{detail.answer}}</view></view></view></view>

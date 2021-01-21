@@ -1,0 +1,25 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/tool_1/legislation",
+    "pages/tool_1/legislation_detail",
+    "pages/tool_2/case",
+    "pages/tool_2/case_detail",
+    "pages/tool_3/dispute",
+    "pages/tool_3/dispute_detail",
+    "pages/tool_4/aidedtools",
+    "pages/tool_4/1_lawsuit",
+    "pages/tool_4/2_injuries",
+    "pages/tool_4/3_trans",
+    "pages/tool_4/4_fee"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#2083E7",
+    "backgroundColor": "#F8F8F8"
+  },
+  "usingComponents": {},
+  "sitemapLocation": "sitemap2.json"
+}

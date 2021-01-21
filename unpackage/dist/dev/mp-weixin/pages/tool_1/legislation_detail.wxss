@@ -1,0 +1,94 @@
+@charset "UTF-8";
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/**
+ * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+ *
+ * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+.legislation_detail {
+  width: 100%;
+  min-height: 100vh;
+  background: #F2F2F2;
+}
+.legislation_detail .content {
+  position: relative;
+  padding: 35rpx 54rpx;
+}
+.legislation_detail .content .title {
+  font-size: 32rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #3D3D3D;
+  opacity: 0.9;
+  display: block;
+  margin-bottom: 42rpx;
+}
+.legislation_detail .content .keywords {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-flex-wrap: wrap;
+          flex-wrap: wrap;
+  margin-bottom: 24rpx;
+}
+.legislation_detail .content .keywords text {
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #000000;
+  opacity: 0.7;
+  display: block;
+  margin-right: 27rpx;
+}
+.legislation_detail .content .keywords .key {
+  margin: 5rpx 9rpx 5rpx;
+  padding: 10rpx;
+  background: #E6F2FF;
+  border-radius: 6rpx;
+  font-size: 22rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #000000;
+  opacity: 0.6;
+}
+.legislation_detail .content .text text {
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #000000;
+  opacity: 0.7;
+  display: block;
+  margin-bottom: 30rpx;
+}
+.legislation_detail .content .text .textContent {
+  margin-left: 26rpx;
+  font-size: 24rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #3E3E3E;
+  line-height: 36rpx;
+  opacity: 0.7;
+}
+
