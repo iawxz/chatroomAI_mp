@@ -1,0 +1,467 @@
+@charset "UTF-8";
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/**
+ * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+ *
+ * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+.aidedtools {
+  background-color: #F2F2F2;
+  padding-bottom: 70rpx;
+}
+.aidedtools .type {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  width: 100%;
+  height: 81rpx;
+  background: #2083E7;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: space-around;
+          justify-content: space-around;
+  -webkit-transform: translateY(-1rpx);
+          transform: translateY(-1rpx);
+}
+.aidedtools .type .typeName {
+  position: relative;
+  width: 327rpx;
+  text-align: center;
+  font-size: 32rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  line-height: 80rpx;
+  color: rgba(255, 255, 255, 0.7);
+}
+.aidedtools .type .typeName .typeLine {
+  width: 100%;
+  height: 6rpx;
+  background: #FFFFFF;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.aidedtools .type .typeChoose {
+  color: #FFFFFF;
+}
+.aidedtools .content {
+  position: relative;
+  z-index: 0;
+}
+.aidedtools .basicInfo {
+  width: 654rpx;
+  padding-left: 32rpx;
+  margin: 40rpx auto 0;
+  border-radius: 10px;
+  background-color: #FFFFFF;
+  overflow: hidden;
+}
+.aidedtools .basicInfo .inputBox {
+  position: relative;
+  height: 99rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+.aidedtools .basicInfo .inputBox .title {
+  position: absolute;
+  width: 400rpx;
+  height: 99rpx;
+  line-height: 99rpx;
+  font-size: 32rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.8);
+}
+.aidedtools .basicInfo .inputBox .required {
+  color: red;
+  font-size: 32rpx;
+  font-weight: bold;
+  position: absolute;
+  left: -20rpx;
+}
+.aidedtools .basicInfo .inputBox .input {
+  width: 100%;
+  height: 99rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+          justify-content: flex-end;
+}
+.aidedtools .basicInfo .inputBox .input input {
+  text-align: right;
+}
+.aidedtools .basicInfo .inputBox .input input:placeholder {
+  text-align: right;
+  font-size: 26rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #000000;
+  opacity: 0.5;
+}
+.aidedtools .basicInfo .inputBox .input text.unit {
+  font-size: 32rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.7);
+  margin-right: 40rpx;
+  margin-left: 9rpx;
+}
+.aidedtools .basicInfo .inputBox .radio .radioBox {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  margin-left: 30rpx;
+}
+.aidedtools .basicInfo .inputBox .radio .radioBox image {
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 8rpx;
+}
+.aidedtools .basicInfo .inputBox .radio .radioBox text {
+  font-size: 32rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.7);
+  margin-right: 40rpx;
+}
+.aidedtools .basicInfo .inputBox .select {
+  position: relative;
+}
+.aidedtools .basicInfo .inputBox .select picker {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+          justify-content: flex-end;
+}
+.aidedtools .basicInfo .inputBox .select picker text {
+  margin-right: 73rpx;
+  font-size: 26rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.5);
+}
+.aidedtools .basicInfo .inputBox .select .type_more {
+  width: 18rpx;
+  height: 12rpx;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translate(-40rpx, -50%);
+          transform: translate(-40rpx, -50%);
+}
+.aidedtools .basicInfo .inputBox .splitLine {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 451rpx;
+  height: 2rpx;
+  background: #000000;
+  opacity: 0.08;
+}
+.aidedtools .basicInfo .inputBox:last-child .splitLine {
+  display: none;
+}
+.aidedtools .custodian .isNeedBox {
+  width: 686rpx;
+  margin: 40rpx auto 32rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+.aidedtools .custodian .isNeedBox .isNeedText {
+  font-size: 32rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #2083E7;
+  margin-right: 65rpx;
+}
+.aidedtools .custodian .isNeedBox .radioBox {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  margin-right: 34rpx;
+}
+.aidedtools .custodian .isNeedBox .radioBox image {
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 8rpx;
+}
+.aidedtools .custodian .isNeedBox .radioBox text {
+  font-size: 32rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #000000;
+  opacity: 0.7;
+}
+.aidedtools .custodian .custodianBox {
+  position: relative;
+  width: 654rpx;
+  margin: 0 auto;
+  padding-left: 32rpx;
+  background: #FFFFFF;
+  border-radius: 10rpx;
+  margin-bottom: 32rpx;
+}
+.aidedtools .custodian .custodianBox .custodianDel {
+  width: 42rpx;
+  height: 42rpx;
+  position: absolute;
+  right: -20rpx;
+  top: -20rpx;
+}
+.aidedtools .custodian .custodianBox .custodianInputBox {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+.aidedtools .custodian .custodianBox .custodianInputBox .title {
+  width: 780rpx;
+  height: 99rpx;
+  line-height: 99rpx;
+  font-size: 32rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.8);
+}
+.aidedtools .custodian .custodianBox .custodianInputBox .input {
+  width: 100%;
+  height: 99rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+          justify-content: flex-end;
+}
+.aidedtools .custodian .custodianBox .custodianInputBox .input input {
+  text-align: right;
+}
+.aidedtools .custodian .custodianBox .custodianInputBox .input input:placeholder {
+  text-align: right;
+  font-size: 26rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #000000;
+  opacity: 0.5;
+}
+.aidedtools .custodian .custodianBox .custodianInputBox .input text.unit {
+  font-size: 32rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.7);
+  margin-right: 40rpx;
+  margin-left: 9rpx;
+}
+.aidedtools .custodian .custodianBox .custodianInputBox .radio .radioBox {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+.aidedtools .custodian .custodianBox .custodianInputBox .radio .radioBox image {
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 8rpx;
+}
+.aidedtools .custodian .custodianBox .custodianInputBox .radio .radioBox text {
+  font-size: 32rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.7);
+  margin-right: 40rpx;
+}
+.aidedtools .custodian .custodianBox .custodianInputBox .splitLine {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 451rpx;
+  height: 2rpx;
+  background: #000000;
+  opacity: 0.08;
+}
+.aidedtools .custodian .custodianBox .custodianInputBox:last-child .splitLine {
+  display: none;
+}
+.aidedtools .custodian .custodianAdd {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+}
+.aidedtools .custodian .custodianAdd image {
+  width: 45rpx;
+  height: 45rpx;
+  margin-right: 24rpx;
+}
+.aidedtools .custodian .custodianAdd text {
+  font-size: 32rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.8);
+}
+.aidedtools .calc {
+  width: 320rpx;
+  height: 80rpx;
+  text-align: center;
+  line-height: 80rpx;
+  margin: 40rpx auto;
+  background: #2083E7;
+  border-radius: 10rpx;
+  font-size: 36rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #FFFFFF;
+}
+.aidedtools .result {
+  width: 686rpx;
+  margin: 0 auto;
+  background: #FFFFFF;
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+.aidedtools .result .title {
+  width: calc(100%-31rpx);
+  height: 100rpx;
+  padding-left: 31rpx;
+  background: #E6F2FF;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+.aidedtools .result .title image {
+  width: 39rpx;
+  height: 42rpx;
+  margin-right: 13rpx;
+}
+.aidedtools .result .title text {
+  font-size: 30rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #2083E7;
+}
+.aidedtools .result .fee {
+  position: relative;
+  width: 100%;
+  height: 99rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+}
+.aidedtools .result .fee text {
+  position: absolute;
+  width: 372rpx;
+  font-size: 32rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #000000;
+  opacity: 0.8;
+  margin-left: 32rpx;
+}
+.aidedtools .result .fee .amount {
+  width: 90%;
+  height: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+          justify-content: flex-end;
+  text-align: right;
+  font-size: 26rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #000000;
+  opacity: 0.7;
+}
+.aidedtools .result .fee .amount .unit {
+  margin-right: 36rpx;
+  font-size: 32rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #2083E7;
+  opacity: 0.9;
+}
+.aidedtools .result .fee .amountLine {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 451rpx;
+  height: 2rpx;
+  background: #000000;
+  opacity: 0.08;
+}
+.aidedtools .result .fee:last-child .amount {
+  border: none;
+}
+

@@ -44,17 +44,35 @@
   "appid": "wx3576e0e873956739",
   "projectname": "chatroom_ai_mp",
   "condition": {
-    "search": {
-      "list": []
-    },
-    "conversation": {
+    "plugin": {
       "list": []
     },
     "game": {
       "list": []
     },
-    "miniprogram": {
+    "gamePlugin": {
       "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "pages/tool_4/1_lawsuit",
+          "pathName": "pages/tool_4/1_lawsuit",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/tool_4/2_injuries",
+          "pathName": "pages/tool_4/2_injuries",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/tool_4/aidedtools",
+          "pathName": "pages/tool_4/aidedtools",
+          "scene": null
+        }
+      ]
     }
   }
 }
