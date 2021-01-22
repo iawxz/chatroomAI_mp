@@ -7,7 +7,7 @@
 					<picker @change="typeChange" :value="typeIndex" :range="typeList">
 						<view class="type_choose">{{typeList[typeIndex]}}</view>
 					</picker>
-					<image class="type_more" src="../../static/tool_4/common/icon_more.png" mode=""></image>
+					<image class="type_more" src="https://aiservices.oss-cn-hangzhou.aliyuncs.com/chatroomAI_mp/tool_4/common/icon_more.png" mode=""></image>
 				</view>
 			</view>
 			<!-- 涉及财产 -->
@@ -18,7 +18,7 @@
 						<picker @change="provinceChange" :value="provinceIndex" :range="provinceList">
 							<view class="province_choose">{{provinceList[provinceIndex]}}</view>
 						</picker>
-						<image class="type_more" src="../../static/tool_4/common/icon_more.png" mode=""></image>
+						<image class="type_more" src="https://aiservices.oss-cn-hangzhou.aliyuncs.com/chatroomAI_mp/tool_4/common/icon_more.png" mode=""></image>
 					</view>
 				</view>
 				<view class="inputBox">
@@ -34,7 +34,7 @@
 			<!-- 计算结果 -->
 			<view class="result">
 				<view class="title">
-					<image src="../../static/tool_4/common/icon_calc.png" mode=""></image>
+					<image src="https://aiservices.oss-cn-hangzhou.aliyuncs.com/chatroomAI_mp/tool_4/common/icon_calc.png" mode=""></image>
 					<text>计算结果</text>
 				</view>
 				<!-- 律师费用 -->
@@ -167,10 +167,10 @@
 	.aidedtools {
 		background-color: #F2F2F2;
 		height: 100vh;
+		padding-top: 40rpx;
 
 		.type {
-			width: 100%;
-			margin-top: 40rpx;
+			width: 100%;			
 
 			.typeBox {
 				position: relative;

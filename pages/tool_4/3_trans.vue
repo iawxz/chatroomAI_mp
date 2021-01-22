@@ -24,12 +24,12 @@
 						<picker @change="selectChange" @click="selectClick(index)" :value="item.value" :range="item.list">
 							<text>{{item.list[item.value]}}</text>
 						</picker>
-						<image class="type_more" src="../../static/tool_4/common/icon_more.png" mode=""></image>
+						<image class="type_more" src="https://aiservices.oss-cn-hangzhou.aliyuncs.com/chatroomAI_mp/tool_4/common/icon_more.png" mode=""></image>
 					</view>
 					<view class="input radio" v-if="item.type == 'radio'">
 						<view class="radioBox" v-for="(item_,index_) in item.list" :key="index_" @click="link(index,index_)">
-							<image src="../../static/tool_4/common/icon_selsect.png" mode="" v-if="item.value != index_"></image>
-							<image src="../../static/tool_4/common/icon_select_T.png" mode="" v-else></image>
+							<image src="https://aiservices.oss-cn-hangzhou.aliyuncs.com/chatroomAI_mp/tool_4/common/icon_select.png" mode="" v-if="item.value != index_"></image>
+							<image src="https://aiservices.oss-cn-hangzhou.aliyuncs.com/chatroomAI_mp/tool_4/common/icon_select_T.png" mode="" v-else></image>
 							<text>{{item_}}</text>
 						</view>
 					</view>
@@ -41,18 +41,18 @@
 				<view class="isNeedBox">
 					<text class="isNeedText">是否有需扶养人</text>
 					<view class="radioBox" @click="need(0)">
-						<image src="../../static/tool_4/common/icon_selsect.png" mode="" v-if="isNeed != 0"></image>
-						<image src="../../static/tool_4/common/icon_select_T.png" mode="" v-else></image>
+						<image src="https://aiservices.oss-cn-hangzhou.aliyuncs.com/chatroomAI_mp/tool_4/common/icon_select.png" mode="" v-if="isNeed != 0"></image>
+						<image src="https://aiservices.oss-cn-hangzhou.aliyuncs.com/chatroomAI_mp/tool_4/common/icon_select_T.png" mode="" v-else></image>
 						<text>是</text>
 					</view>
 					<view class="radioBox" @click="need(1)">
-						<image src="../../static/tool_4/common/icon_selsect.png" mode="" v-if="isNeed != 1"></image>
-						<image src="../../static/tool_4/common/icon_select_T.png" mode="" v-else></image>
+						<image src="https://aiservices.oss-cn-hangzhou.aliyuncs.com/chatroomAI_mp/tool_4/common/icon_select.png" mode="" v-if="isNeed != 1"></image>
+						<image src="https://aiservices.oss-cn-hangzhou.aliyuncs.com/chatroomAI_mp/tool_4/common/icon_select_T.png" mode="" v-else></image>
 						<text>否</text>
 					</view>
 				</view>
 				<view class="custodianBox" v-for="(item,index) in custodianInfo" :key="index">
-					<image class="custodianDel" src="../../static/tool_4/common/icon_delete.png" mode="" @click="delCustodian(index)"></image>
+					<image class="custodianDel" src="https://aiservices.oss-cn-hangzhou.aliyuncs.com/chatroomAI_mp/tool_4/common/icon_delete.png" mode="" @click="delCustodian(index)"></image>
 					<view class="custodianInputBox" v-for="(item_,index_) in item" :key="index_">
 						<text class="title" v-text="item_.name"></text>
 						<view class="input" v-if="item_.type == 'input'">
@@ -61,8 +61,8 @@
 						</view>
 						<view class="input radio" v-if="item_.type == 'radio'">
 							<view class="radioBox" v-for="(item_r,index_r) in item_.list" :key="index_r" @click="work(index,index_,index_r)">
-								<image src="../../static/tool_4/common/icon_selsect.png" mode="" v-if="item_.value != index_r"></image>
-								<image src="../../static/tool_4/common/icon_select_T.png" mode="" v-else></image>
+								<image src="https://aiservices.oss-cn-hangzhou.aliyuncs.com/chatroomAI_mp/tool_4/common/icon_select.png" mode="" v-if="item_.value != index_r"></image>
+								<image src="https://aiservices.oss-cn-hangzhou.aliyuncs.com/chatroomAI_mp/tool_4/common/icon_select_T.png" mode="" v-else></image>
 								<text>{{item_r}}</text>
 							</view>
 						</view>
@@ -71,7 +71,7 @@
 				</view>
 				<!-- 添加扶养人 -->
 				<view class="custodianAdd" @click="addCustodian" v-if="isNeed ==0">
-					<image src="../../static/tool_4/common/icon_add.png" mode=""></image>
+					<image src="https://aiservices.oss-cn-hangzhou.aliyuncs.com/chatroomAI_mp/tool_4/common/icon_add.png" mode=""></image>
 					<text>添加扶养人</text>
 				</view>
 			</view>
@@ -80,7 +80,7 @@
 			<!-- 计算结果 -->
 			<view class="result">
 				<view class="title">
-					<image src="../../static/tool_4/common/icon_calc.png" mode=""></image>
+					<image src="https://aiservices.oss-cn-hangzhou.aliyuncs.com/chatroomAI_mp/tool_4/common/icon_calc.png" mode=""></image>
 					<text>计算结果</text>
 				</view>
 				<view class="fee" v-for="(item,index) in result" :key="index" v-if="item.type == type||item.type == 2">

@@ -27,10 +27,10 @@
 .aidedtools {
   background-color: #F2F2F2;
   height: 100vh;
+  padding-top: 40rpx;
 }
 .aidedtools .type {
   width: 100%;
-  margin-top: 40rpx;
 }
 .aidedtools .type .typeBox {
   position: relative;

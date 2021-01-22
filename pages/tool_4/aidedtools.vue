@@ -1,6 +1,6 @@
 <template>
 	<view class="aidedtools">		
-		<image class="banner" src="../../static/tool_4/banner.png" mode="aspectFit"></image>
+		<image class="banner" src="https://aiservices.oss-cn-hangzhou.aliyuncs.com/chatroomAI_mp/tool_4/banner.png" mode="aspectFit"></image>
 		<div class="tools">
 			<div class="toolBox" v-for="(item,index) in tools" :key="index" @click="goView(item)">
 				<image :src="item.imgurl" mode=""></image>
@@ -15,19 +15,19 @@
 		data() {
 			return {
 				tools: [{
-					imgurl: require('../../static/tool_4/lawsuit.png'),
+					imgurl: 'https://aiservices.oss-cn-hangzhou.aliyuncs.com/chatroomAI_mp/tool_4/lawsuit.png',
 					text: '诉讼服务',
 					url: '/pages/tool_4/1_lawsuit'
 				}, {
-					imgurl: require('../../static/tool_4/work_injuries.png'),
+					imgurl: 'https://aiservices.oss-cn-hangzhou.aliyuncs.com/chatroomAI_mp/tool_4/work_injuries.png',
 					text: '工伤赔偿',
 					url: '/pages/tool_4/2_injuries'
 				}, {
-					imgurl: require('../../static/tool_4/trans.png'),
+					imgurl: 'https://aiservices.oss-cn-hangzhou.aliyuncs.com/chatroomAI_mp/tool_4/trans.png',
 					text: '交通赔偿',
 					url: '/pages/tool_4/3_trans'
 				}, {
-					imgurl: require('../../static/tool_4/fee.png'),
+					imgurl: 'https://aiservices.oss-cn-hangzhou.aliyuncs.com/chatroomAI_mp/tool_4/fee.png',
 					text: '律师费用',
 					url: '/pages/tool_4/4_fee'
 				}, ]

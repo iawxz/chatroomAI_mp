@@ -7,7 +7,7 @@
 					<picker @change="bindPickerChange" :value="index" :range="array_text">
 						<view class="type_choose">{{array_text[index]}}</view>
 					</picker>
-					<image class="type_more" src="../../static/tool_4/common/icon_more.png" mode=""></image>
+					<image class="type_more" src="https://aiservices.oss-cn-hangzhou.aliyuncs.com/chatroomAI_mp/tool_4/common/icon_more.png" mode=""></image>
 				</view>
 			</view>
 			<!-- 涉及财产 -->
@@ -16,13 +16,13 @@
 					<text class="title">涉及财产</text>
 					<view class="input radio">
 						<view class="radioBox" @click="link(1)">
-							<image src="../../static/tool_4/common/icon_selsect.png" mode="" v-if="isLink!=1"></image>
-							<image src="../../static/tool_4/common/icon_select_T.png" mode="" v-else></image>
+							<image src="https://aiservices.oss-cn-hangzhou.aliyuncs.com/chatroomAI_mp/tool_4/common/icon_select.png" mode="" v-if="isLink!=1"></image>
+							<image src="https://aiservices.oss-cn-hangzhou.aliyuncs.com/chatroomAI_mp/tool_4/common/icon_select_T.png" mode="" v-else></image>
 							<text>是</text>
 						</view>
 						<view class="radioBox" @click="link(0)">
-							<image src="../../static/tool_4/common/icon_selsect.png" mode="" v-if="isLink!=0"></image>
-							<image src="../../static/tool_4/common/icon_select_T.png" mode="" v-else></image>
+							<image src="https://aiservices.oss-cn-hangzhou.aliyuncs.com/chatroomAI_mp/tool_4/common/icon_select.png" mode="" v-if="isLink!=0"></image>
+							<image src="https://aiservices.oss-cn-hangzhou.aliyuncs.com/chatroomAI_mp/tool_4/common/icon_select_T.png" mode="" v-else></image>
 							<text>否</text>
 						</view>
 					</view>
@@ -40,7 +40,7 @@
 			<!-- 计算结果 -->
 			<view class="result">
 				<view class="title">
-					<image src="../../static/tool_4/common/icon_calc.png" mode=""></image>
+					<image src="https://aiservices.oss-cn-hangzhou.aliyuncs.com/chatroomAI_mp/tool_4/common/icon_calc.png" mode=""></image>
 					<text>计算结果</text>
 				</view>
 				<!-- 受理费 -->

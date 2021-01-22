@@ -1,5 +1,5 @@
 <template>
-	<view class="aidedtools">		
+	<view class="aidedtools">
 		<!-- 选择类型 -->
 		<view class="type">
 			<view class="typeName" :class="{typeChoose:type==0}" @click="typeChoose(0)">伤残赔偿
@@ -9,7 +9,7 @@
 				<view class="typeLine" v-show="type==1"></view>
 			</view>
 		</view>
-		<view style="height: 80rpx;width: 100%;"></view>
+		<view style="height: 80rpx;"></view>
 		<view class="content">
 			<!-- 基本信息 -->
 			<view class="basicInfo">
@@ -24,12 +24,12 @@
 						<picker @change="selectChange" @click="selectClick(index)" :value="item.value" :range="item.list">
 							<text>{{item.list[item.value]}}</text>
 						</picker>
-						<image class="type_more" src="../../static/tool_4/common/icon_more.png" mode=""></image>
+						<image class="type_more" src="https://aiservices.oss-cn-hangzhou.aliyuncs.com/chatroomAI_mp/tool_4/common/icon_more.png" mode=""></image>
 					</view>
 					<view class="input radio" v-if="item.type == 'radio'">
 						<view class="radioBox" v-for="(item_,index_) in item.list" :key="index_" @click="link(index,index_)">
-							<image src="../../static/tool_4/common/icon_selsect.png" mode="" v-if="item.value != index_"></image>
-							<image src="../../static/tool_4/common/icon_select_T.png" mode="" v-else></image>
+							<image src="https://aiservices.oss-cn-hangzhou.aliyuncs.com/chatroomAI_mp/tool_4/common/icon_select.png" mode="" v-if="item.value != index_"></image>
+							<image src="https://aiservices.oss-cn-hangzhou.aliyuncs.com/chatroomAI_mp/tool_4/common/icon_select_T.png" mode="" v-else></image>
 							<text>{{item_}}</text>
 						</view>
 					</view>
@@ -40,13 +40,13 @@
 					<text class="title">是否有配偶</text>
 					<view class="input radio">
 						<view class="radioBox" @click="link_isMarried(0)">
-							<image src="../../static/tool_4/common/icon_selsect.png" mode="" v-if="isMarried.value!=0"></image>
-							<image src="../../static/tool_4/common/icon_select_T.png" mode="" v-else></image>
+							<image src="https://aiservices.oss-cn-hangzhou.aliyuncs.com/chatroomAI_mp/tool_4/common/icon_select.png" mode="" v-if="isMarried.value!=0"></image>
+							<image src="https://aiservices.oss-cn-hangzhou.aliyuncs.com/chatroomAI_mp/tool_4/common/icon_select_T.png" mode="" v-else></image>
 							<text>是</text>
 						</view>
 						<view class="radioBox" @click="link_isMarried(1)">
-							<image src="../../static/tool_4/common/icon_selsect.png" mode="" v-if="isMarried.value!=1"></image>
-							<image src="../../static/tool_4/common/icon_select_T.png" mode="" v-else></image>
+							<image src="https://aiservices.oss-cn-hangzhou.aliyuncs.com/chatroomAI_mp/tool_4/common/icon_select.png" mode="" v-if="isMarried.value!=1"></image>
+							<image src="https://aiservices.oss-cn-hangzhou.aliyuncs.com/chatroomAI_mp/tool_4/common/icon_select_T.png" mode="" v-else></image>
 							<text>否</text>
 						</view>
 					</view>
@@ -55,13 +55,13 @@
 						<text class="title_ex">是否有以下情形</text>
 						<view class="radio_ex">
 							<view class="radioBox_ex" @click="link_isMarried_isHave(0)">
-								<image src="../../static/tool_4/common/icon_selsect.png" mode="" v-if="isMarried.isHave!=0"></image>
-								<image src="../../static/tool_4/common/icon_select_T.png" mode="" v-else></image>
+								<image src="https://aiservices.oss-cn-hangzhou.aliyuncs.com/chatroomAI_mp/tool_4/common/icon_select.png" mode="" v-if="isMarried.isHave!=0"></image>
+								<image src="https://aiservices.oss-cn-hangzhou.aliyuncs.com/chatroomAI_mp/tool_4/common/icon_select_T.png" mode="" v-else></image>
 								<text>是</text>
 							</view>
 							<view class="radioBox_ex" @click="link_isMarried_isHave(1)">
-								<image src="../../static/tool_4/common/icon_selsect.png" mode="" v-if="isMarried.isHave!=1"></image>
-								<image src="../../static/tool_4/common/icon_select_T.png" mode="" v-else></image>
+								<image src="https://aiservices.oss-cn-hangzhou.aliyuncs.com/chatroomAI_mp/tool_4/common/icon_select.png" mode="" v-if="isMarried.isHave!=1"></image>
+								<image src="https://aiservices.oss-cn-hangzhou.aliyuncs.com/chatroomAI_mp/tool_4/common/icon_select_T.png" mode="" v-else></image>
 								<text>否</text>
 							</view>
 						</view>
@@ -74,13 +74,13 @@
 						<text class="title_ex">是否属于孤寡老人</text>
 						<view class="radio_ex">
 							<view class="radioBox_ex" @click="link_isMarried_isOld(0)">
-								<image src="../../static/tool_4/common/icon_selsect.png" mode="" v-if="isMarried.isOld!=0"></image>
-								<image src="../../static/tool_4/common/icon_select_T.png" mode="" v-else></image>
+								<image src="https://aiservices.oss-cn-hangzhou.aliyuncs.com/chatroomAI_mp/tool_4/common/icon_select.png" mode="" v-if="isMarried.isOld!=0"></image>
+								<image src="https://aiservices.oss-cn-hangzhou.aliyuncs.com/chatroomAI_mp/tool_4/common/icon_select_T.png" mode="" v-else></image>
 								<text>是</text>
 							</view>
 							<view class="radioBox_ex" @click="link_isMarried_isOld(1)">
-								<image src="../../static/tool_4/common/icon_selsect.png" mode="" v-if="isMarried.isOld!=1"></image>
-								<image src="../../static/tool_4/common/icon_select_T.png" mode="" v-else></image>
+								<image src="https://aiservices.oss-cn-hangzhou.aliyuncs.com/chatroomAI_mp/tool_4/common/icon_select.png" mode="" v-if="isMarried.isOld!=1"></image>
+								<image src="https://aiservices.oss-cn-hangzhou.aliyuncs.com/chatroomAI_mp/tool_4/common/icon_select_T.png" mode="" v-else></image>
 								<text>否</text>
 							</view>
 						</view>
@@ -91,13 +91,13 @@
 					<text class="title">是否有其它供养家属</text>
 					<view class="input radio">
 						<view class="radioBox" @click="link_isHaveElse(0)">
-							<image src="../../static/tool_4/common/icon_selsect.png" mode="" v-if="isHaveElse.value!=0"></image>
-							<image src="../../static/tool_4/common/icon_select_T.png" mode="" v-else></image>
+							<image src="https://aiservices.oss-cn-hangzhou.aliyuncs.com/chatroomAI_mp/tool_4/common/icon_select.png" mode="" v-if="isHaveElse.value!=0"></image>
+							<image src="https://aiservices.oss-cn-hangzhou.aliyuncs.com/chatroomAI_mp/tool_4/common/icon_select_T.png" mode="" v-else></image>
 							<text>是</text>
 						</view>
 						<view class="radioBox" @click="link_isHaveElse(1)">
-							<image src="../../static/tool_4/common/icon_selsect.png" mode="" v-if="isHaveElse.value!=1"></image>
-							<image src="../../static/tool_4/common/icon_select_T.png" mode="" v-else></image>
+							<image src="https://aiservices.oss-cn-hangzhou.aliyuncs.com/chatroomAI_mp/tool_4/common/icon_select.png" mode="" v-if="isHaveElse.value!=1"></image>
+							<image src="https://aiservices.oss-cn-hangzhou.aliyuncs.com/chatroomAI_mp/tool_4/common/icon_select_T.png" mode="" v-else></image>
 							<text>否</text>
 						</view>
 					</view>
@@ -106,13 +106,13 @@
 						<text class="title_ex">是否有以下情形</text>
 						<view class="radio_ex">
 							<view class="radioBox_ex" @click="link_isHaveElse_isHave(0)">
-								<image src="../../static/tool_4/common/icon_selsect.png" mode="" v-if="isHaveElse.isHave!=0"></image>
-								<image src="../../static/tool_4/common/icon_select_T.png" mode="" v-else></image>
+								<image src="https://aiservices.oss-cn-hangzhou.aliyuncs.com/chatroomAI_mp/tool_4/common/icon_select.png" mode="" v-if="isHaveElse.isHave!=0"></image>
+								<image src="https://aiservices.oss-cn-hangzhou.aliyuncs.com/chatroomAI_mp/tool_4/common/icon_select_T.png" mode="" v-else></image>
 								<text>是</text>
 							</view>
 							<view class="radioBox_ex" @click="link_isHaveElse_isHave(1)">
-								<image src="../../static/tool_4/common/icon_selsect.png" mode="" v-if="isHaveElse.isHave!=1"></image>
-								<image src="../../static/tool_4/common/icon_select_T.png" mode="" v-else></image>
+								<image src="https://aiservices.oss-cn-hangzhou.aliyuncs.com/chatroomAI_mp/tool_4/common/icon_select.png" mode="" v-if="isHaveElse.isHave!=1"></image>
+								<image src="https://aiservices.oss-cn-hangzhou.aliyuncs.com/chatroomAI_mp/tool_4/common/icon_select_T.png" mode="" v-else></image>
 								<text>否</text>
 							</view>
 						</view>
@@ -127,7 +127,7 @@
 					<view class="extras" v-if="isHaveElse.value == 0">
 						<text class="title_ex">其他供养家属人数</text>
 						<view class="input_ex">
-							<input type="number" :value="isHaveElse.number" placeholder="请输入内容" />
+							<input type="number" :value="isHaveElse.number" />
 							<text class="unit_ex">人</text>
 						</view>
 					</view>
@@ -135,13 +135,13 @@
 						<text class="title_ex">是否属于孤寡老人</text>
 						<view class="radio_ex">
 							<view class="radioBox_ex" @click="link_isHaveElse_isOld(0)">
-								<image src="../../static/tool_4/common/icon_selsect.png" mode="" v-if="isHaveElse.isOld!=0"></image>
-								<image src="../../static/tool_4/common/icon_select_T.png" mode="" v-else></image>
+								<image src="https://aiservices.oss-cn-hangzhou.aliyuncs.com/chatroomAI_mp/tool_4/common/icon_select.png" mode="" v-if="isHaveElse.isOld!=0"></image>
+								<image src="https://aiservices.oss-cn-hangzhou.aliyuncs.com/chatroomAI_mp/tool_4/common/icon_select_T.png" mode="" v-else></image>
 								<text>是</text>
 							</view>
 							<view class="radioBox_ex" @click="link_isHaveElse_isOld(1)">
-								<image src="../../static/tool_4/common/icon_selsect.png" mode="" v-if="isHaveElse.isOld!=1"></image>
-								<image src="../../static/tool_4/common/icon_select_T.png" mode="" v-else></image>
+								<image src="https://aiservices.oss-cn-hangzhou.aliyuncs.com/chatroomAI_mp/tool_4/common/icon_select.png" mode="" v-if="isHaveElse.isOld!=1"></image>
+								<image src="https://aiservices.oss-cn-hangzhou.aliyuncs.com/chatroomAI_mp/tool_4/common/icon_select_T.png" mode="" v-else></image>
 								<text>否</text>
 							</view>
 						</view>
@@ -155,7 +155,7 @@
 			<!-- 计算结果 -->
 			<view class="result">
 				<view class="title">
-					<image src="../../static/tool_4/common/icon_calc.png" mode=""></image>
+					<image src="https://aiservices.oss-cn-hangzhou.aliyuncs.com/chatroomAI_mp/tool_4/common/icon_calc.png" mode=""></image>
 					<text>计算结果</text>
 				</view>
 				<view class="fee" v-for="(item,index) in result[type]" :key="index">

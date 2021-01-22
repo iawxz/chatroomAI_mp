@@ -18,8 +18,8 @@
 				<view class="progressBox">
 					<view class="progressX" v-for="(item,index) in progress" :key="index">			
 						<view class="title">
-							<image src="../../static/tool_3/point.png" mode="" v-if="choose!=index" @click="goChoose(index)"></image>
-							<image src="../../static/tool_3/point_choose.png" mode="" v-else></image>
+							<image src="https://aiservices.oss-cn-hangzhou.aliyuncs.com/chatroomAI_mp/tool_3/point.png" mode="" v-if="choose!=index" @click="goChoose(index)"></image>
+							<image src="https://aiservices.oss-cn-hangzhou.aliyuncs.com/chatroomAI_mp/tool_3/point_choose.png" mode="" v-else></image>
 							<text>{{item.step}}</text>
 						</view>
 						<view class="text" :class="{ noline: index == progressLength-1 }">							
@@ -38,7 +38,7 @@
 				<view class="problemBox">
 					<view class="problems" v-for="(item,index) in problems" :key="index" @click="goDetail(item.id)">
 						<text>{{item.title}}</text>
-						<image src="@/static/arrow_right.png" mode=""></image>
+						<image src="https://aiservices.oss-cn-hangzhou.aliyuncs.com/chatroomAI_mp/arrow_right.png" mode=""></image>
 					</view>
 				</view>
 			</view>

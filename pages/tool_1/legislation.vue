@@ -1,8 +1,8 @@
 <template>
 	<view class="legislation">
-		<view class="header" style="background-image: url(../../static/tool_1/header.png);">
+		<view class="header" style="background-image: url(https://aiservices.oss-cn-hangzhou.aliyuncs.com/chatroomAI_mp/tool_1/header.png);">
 			<view class="searchBox">
-				<image src="../../static/icon_search.png" mode="aspectFit"></image>
+				<image src="https://aiservices.oss-cn-hangzhou.aliyuncs.com/chatroomAI_mp/icon_search.png" mode="aspectFit"></image>
 				<input type="text" v-model="keywords" @input="inputchange" placeholder="请输入检索字段">
 			</view>
 		</view>
@@ -12,8 +12,8 @@
 			<view class="legislationBox" v-for="(item,index) in list" :key="index" @click="goDetail(item.id)">
 				<view class="title">{{item.title}}</view>
 				<view class="text" v-html="item.text"></view>
-				<image src="../../static/tool_1/useful.png" mode="aspectFit" v-if="item.isimpl == '现行有效'"></image>
-				<image src="../../static/tool_1/useless.png" mode="aspectFit" v-else></image>
+				<image src="https://aiservices.oss-cn-hangzhou.aliyuncs.com/chatroomAI_mp/tool_1/useful.png" mode="aspectFit" v-if="item.isimpl == '现行有效'"></image>
+				<image src="https://aiservices.oss-cn-hangzhou.aliyuncs.com/chatroomAI_mp/tool_1/useless.png" mode="aspectFit" v-else></image>
 			</view>
 			<text class="total more" v-if="total==list.length">
 				暂无更多...

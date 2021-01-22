@@ -8,7 +8,7 @@
 		<!-- 输入盒子 -->
 		<view class="chatInput" :class="[toolBoxShow!=-1?toolBoxShow==true?'toolShow':'toolHide':'']">
 			<view class="inputBox">
-				<image src="../../static/tools.png" mode="aspectFit" @click="getTools"></image>
+				<image src="https://aiservices.oss-cn-hangzhou.aliyuncs.com/chatroomAI_mp/tools.png" mode="aspectFit" @click="getTools"></image>
 				<view class="textarea">
 					<input type="text" value="" placeholder="请简短清晰的描述您的问题" />
 				</view>
@@ -31,19 +31,19 @@
 				tools: [{
 					title: '法规搜索',
 					url: '../tool_1/legislation',
-					img: require('../../static/chatroom/tool_1.png'),
+					img: 'https://aiservices.oss-cn-hangzhou.aliyuncs.com/chatroomAI_mp/chatroom/tool_1.png',
 				}, {
 					title: '案例搜索',
 					url: '../tool_2/case',
-					img: require('../../static/chatroom/tool_2.png'),
+					img: 'https://aiservices.oss-cn-hangzhou.aliyuncs.com/chatroomAI_mp/chatroom/tool_2.png',
 				}, {
 					title: '解纷方式',
 					url: '../tool_3/dispute',
-					img: require('../../static/chatroom/tool_3.png'),
+					img: 'https://aiservices.oss-cn-hangzhou.aliyuncs.com/chatroomAI_mp/chatroom/tool_3.png',
 				}, {
 					title: '辅助工具',
 					url: '../tool_4/aidedtools',
-					img: require('../../static/chatroom/tool_4.png'),
+					img: 'https://aiservices.oss-cn-hangzhou.aliyuncs.com/chatroomAI_mp/chatroom/tool_4.png',
 				}, ],
 				toolBoxShow: -1, //工具栏是否展示，0否1是-1第一次进入页面
 			}

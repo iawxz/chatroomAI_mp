@@ -1,8 +1,8 @@
 <template>
 	<view class="case">
-		<view class="header" style="background-image: url(../../static/tool_2/header.png);">
+		<view class="header" style="background-image: url(https://aiservices.oss-cn-hangzhou.aliyuncs.com/chatroomAI_mp/tool_2/header.png);">
 			<view class="searchBox">
-				<image src="../../static/icon_search.png" mode="aspectFit"></image>
+				<image src="https://aiservices.oss-cn-hangzhou.aliyuncs.com/chatroomAI_mp/icon_search.png" mode="aspectFit"></image>
 				<input type="text" v-model="keywords" @input="inputchange" placeholder="请输入检索字段">
 			</view>
 		</view>
