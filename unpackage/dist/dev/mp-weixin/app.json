@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/chatroom/chatrom",
     "pages/tool_1/legislation",
     "pages/tool_1/legislation_detail",
     "pages/tool_2/case",
@@ -21,5 +22,5 @@
     "backgroundColor": "#F8F8F8"
   },
   "usingComponents": {},
-  "sitemapLocation": "sitemap33.json"
+  "sitemapLocation": "sitemap55.json"
 }

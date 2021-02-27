@@ -37,7 +37,7 @@
 					title: '加载中'
 				});
 				uni.request({
-					url: 'http://ai.365lawhelp.com/API/Default/getLawDetail',
+					url: 'https://ai.365lawhelp.com/API/Default/getLawDetail',
 					data: {
 						id: this.id
 					},

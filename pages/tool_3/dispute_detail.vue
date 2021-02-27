@@ -34,7 +34,7 @@
 					title: '加载中'
 				});
 				uni.request({
-					url: 'http://ai.365lawhelp.com/API/Question/getQuestionDetail',
+					url: 'https://ai.365lawhelp.com/API/Question/getQuestionDetail',
 					data: {
 						id: this.id
 					},

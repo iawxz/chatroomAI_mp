@@ -91,7 +91,7 @@
 					title: '加载中'
 				});
 				uni.request({
-					url: 'http://ai.365lawhelp.com/API/Cost/getsusongType',
+					url: 'https://ai.365lawhelp.com/API/Cost/getsusongType',
 					data: {},
 					method: 'post',
 					header: {
@@ -146,7 +146,7 @@
 				}
 
 				uni.request({
-					url: 'http://ai.365lawhelp.com/API/Cost/getsusongCost',
+					url: 'https://ai.365lawhelp.com/API/Cost/getsusongCost',
 					data,
 					method: 'post',
 					header: {

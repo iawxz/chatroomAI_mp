@@ -6,7 +6,7 @@
 				<input type="text" v-model="keywords" @input="inputchange" placeholder="请输入检索字段">
 			</view>
 		</view>
-
+		<view class="headerBody"></view>
 		<view class="content">
 			<text class="total">共收录{{total}}份法规</text>
 			<view class="legislationBox" v-for="(item,index) in list" :key="index" @click="goDetail(item.id)">
@@ -60,11 +60,12 @@
 				}, 500);
 			},
 			getList() {
+				console.log(1)
 				uni.showLoading({
 					title: '加载中'
 				});
 				uni.request({
-					url: 'http://ai.365lawhelp.com/API/Default/getLawList',
+					url: 'https://ai.365lawhelp.com/API/Default/getLawList',
 					data: {
 						pageNum: 1,
 						pageSize: this.pageSize,
@@ -76,12 +77,14 @@
 					}, // 请求头
 					dataType: 'json', // 返回数据格式
 				}).then(result => {
+					console.log(2)
 					let [err, res] = result;
 
 					this.total = res.data.total
 					this.list = res.data.datalist
 					var textRule = new RegExp("<.+?>", "g");
 					var index = 0;
+					console.log(3)
 					for (var i of this.list) {
 						this.list[index].text = i.content.replace(textRule, '');
 						this.list[index].text = this.list[index].text.replace(/\s+/g, "");
@@ -89,8 +92,10 @@
 						this.list[index].text = this.list[index].text.replace(/\<br>【+/,"【"); //第一个【前不加换行，通过不加g全局来判断
 						index++
 					}
+					console.log(4)
 					setTimeout(function() {
 						uni.hideLoading();
+						console.log(5)
 					}, 500);
 				})
 			},
@@ -109,14 +114,17 @@
 		height: 100%;
 		min-height: 100vh;
 		background-color: #F2F2F2;
+		position: relative;
 
 		.header {
 			width: 100%;
 			height: 275rpx;
+			position: fixed;
+			z-index: 9999;
 			background-repeat: no-repeat;
 			background-size: cover;
 			background-position: center;
-			position: relative;
+			// position: relative;
 
 			.searchBox {
 				width: 534rpx;
@@ -158,7 +166,12 @@
 				}
 			}
 		}
-
+		
+		.headerBody{
+			width: 100%;
+			height: 275rpx;
+		}
+		
 		.content {
 			position: relative;
 			padding: 40rpx 32rpx;

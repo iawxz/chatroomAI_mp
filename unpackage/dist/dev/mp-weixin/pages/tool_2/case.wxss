@@ -33,10 +33,11 @@
 .case .header {
   width: 100%;
   height: 275rpx;
+  position: fixed;
+  z-index: 9999;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  position: relative;
 }
 .case .header .searchBox {
   width: 534rpx;
@@ -79,6 +80,10 @@
   font-weight: bold;
   color: #010101;
   opacity: 0.6;
+}
+.case .headerBody {
+  width: 100%;
+  height: 275rpx;
 }
 .case .content {
   padding: 40rpx 32rpx;

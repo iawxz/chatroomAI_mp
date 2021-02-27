@@ -161,10 +161,64 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var _default =
 {
   data: function data() {
     return {
+      statusBarHeight: null, //状态栏高度
+      questionHeight: null, //问题展示区域高度
+      typeTop: null, //问题类型高度
       tools: [{
         title: '法规搜索',
         url: '../tool_1/legislation',
@@ -174,34 +228,213 @@ var _default =
         url: '../tool_2/case',
         img: 'https://aiservices.oss-cn-hangzhou.aliyuncs.com/chatroomAI_mp/chatroom/tool_2.png' },
       {
-        title: '解纷方式',
-        url: '../tool_3/dispute',
-        img: 'https://aiservices.oss-cn-hangzhou.aliyuncs.com/chatroomAI_mp/chatroom/tool_3.png' },
-      {
-        title: '辅助工具',
+        title: '费用计算器',
         url: '../tool_4/aidedtools',
         img: 'https://aiservices.oss-cn-hangzhou.aliyuncs.com/chatroomAI_mp/chatroom/tool_4.png' }],
 
-      toolBoxShow: -1 //工具栏是否展示，0否1是-1第一次进入页面
-    };
-  },
-  onLoad: function onLoad() {
+      type: [{
+        title: "婚姻继承" },
+
+      {
+        title: "借贷纠纷" },
+
+      {
+        title: "交通事故" },
+
+      {
+        title: "医疗事故" },
+
+      {
+        title: "电子商务" },
+
+      {
+        title: "物业纠纷" },
+
+      {
+        title: "劳动争议" },
+
+      {
+        title: "法律程序" },
+
+      {
+        title: "消费维权" },
+
+      {
+        title: "知识产权" },
+
+      {
+        title: "公司业务" },
+
+      {
+        title: "相邻关系" },
+
+      {
+        title: "行政纠纷" },
+
+      {
+        title: "房屋买卖" },
+
+      {
+        title: "房屋租赁" },
+
+      {
+        title: "物权纠纷" },
+
+      {
+        title: "合同纠纷" },
+
+      {
+        title: "合伙联营" },
+
+      {
+        title: "涉外商事" },
+
+      {
+        title: "征地拆迁" },
+
+      {
+        title: "名誉侵权" },
+
+      {
+        title: "证券票据" },
+
+      {
+        title: "刑事自诉" },
+
+      {
+        title: "侵权纠纷" },
+
+      {
+        title: "疫情纠纷" }],
+
+
+      question: [{
+        title: "发生交通事故后的诉讼时效是多久？" },
+
+      {
+        title: "发生交通事故后的诉讼时效是多久？" },
+
+      {
+        title: "发生交通事故后的诉讼时效是多久？" },
+
+      {
+        title: "发生交通事故后的诉讼时效是多久？" },
+
+      {
+        title: "发生交通事故后的诉讼时效是多久？" },
+
+      {
+        title: "发生交通事故后的诉讼时效是多久？" },
+
+      {
+        title: "发生交通事故后的诉讼时效是多久？" },
+
+      {
+        title: "发生交通事故后的诉讼时效是多久？" },
+
+      {
+        title: "发生交通事故后的诉讼时效是多久？" },
+
+      {
+        title: "发生交通事故后的诉讼时效是多久？" },
+
+      {
+        title: "发生交通事故后的诉讼时效是多久？" },
+
+      {
+        title: "发生交通事故后的诉讼时效是多久？" },
+
+      {
+        title: "发生交通事故后的诉讼时效是多久？" },
+
+      {
+        title: "发生交通事故后的诉讼时效是多久？" },
+
+      {
+        title: "发生交通事故后的诉讼时效是多久？" },
+
+      {
+        title: "发生交通事故后的诉讼时效是多久？" },
+
+      {
+        title: "发生交通事故后的诉讼时效是多久？" },
+
+      {
+        title: "发生交通事故后的诉讼时效是多久？" },
+
+      {
+        title: "发生交通事故后的诉讼时效是多久？" },
+
+      {
+        title: "发生交通事故后的诉讼时效是多久？" },
+
+      {
+        title: "发生交通事故后的诉讼时效是多久？" },
+
+      {
+        title: "发生交通事故后的诉讼时效是多久？" }],
+
+
+      typeChoose: 0,
+      isTypeShow: false };
 
   },
+  onLoad: function onLoad() {
+    var _this = this;
+    uni.getSystemInfo({
+      success: function success(data) {
+        // 获取手机状态栏高度
+        _this.statusBarHeight = data.statusBarHeight;
+        // 获取问题展示区域高度
+        var screenHeight = data.screenHeight;
+        //statusBar高度:_this.statusBarHeight+50;goChat高度:164;tools:79+20;hotQuestion上半部分:26+22+16+27;questionBox自身margin:13+16;预留底部高度:4;
+        _this.questionHeight = screenHeight - (_this.statusBarHeight + 50) - 164 - (79 + 20) - (26 + 22 + 16 + 27) - (
+        13 + 16) - 4;
+      } });
+
+
+    // 获取类型展示区域高度
+    var query = uni.createSelectorQuery().in(_this);
+    query.select('.hotQuestion').boundingClientRect(function (data) {
+      console.log(data);
+      _this.typeTop = data.top;
+    }).exec();
+
+    //获取热门问题类别列表
+    // uni.request({
+    // 	url: 'https://ai.365lawhelp.com/API/Question/getHotQuestionType',
+    // 	data: {},
+    // 	method: 'get',
+    // 	header: {
+    // 		"Content-Type": "application/x-www-form-urlencoded"
+    // 	},
+    // 	dataType: 'json',
+    // }).then(result => {
+    // 	let [err, res] = result;
+    // 	console.log(res)
+    // })
+  },
+  mounted: function mounted() {},
   methods: {
-    // 获取工具栏
-    getTools: function getTools() {
-      if (this.toolBoxShow == -1) {
-        this.toolBoxShow = true;
-      } else {
-        this.toolBoxShow = !this.toolBoxShow;
-      }
+    // 跳转到聊天室
+    goChat: function goChat() {
+      uni.navigateTo({
+        url: '../chatroom/chatrom' });
+
     },
-    // 跳转到工具
+    // 跳转到相应工具
     goTool: function goTool(item) {
       uni.navigateTo({
         url: item.url });
 
+    },
+    // 展示问题类型列表
+    typeShow: function typeShow() {
+      this.isTypeShow = !this.isTypeShow;
+    },
+    // 热门问题类型选择
+    typeSelect: function typeSelect(index) {
+      this.typeChoose = index;
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

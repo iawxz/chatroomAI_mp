@@ -75,7 +75,7 @@
 				data.type=this.typeList[this.type]
 				uni.showLoading({title: '加载中'});
 				uni.request({
-					url: 'http://ai.365lawhelp.com/API/Resolve/getResolveList',
+					url: 'https://ai.365lawhelp.com/API/Resolve/getResolveList',
 					data,
 					method: 'post',
 					header: {

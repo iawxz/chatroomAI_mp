@@ -136,7 +136,7 @@
 						title: '加载中'
 					});
 					uni.request({
-						url: 'http://ai.365lawhelp.com/API/Cost/getLawyerCost',
+						url: 'https://ai.365lawhelp.com/API/Cost/getLawyerCost',
 						data,
 						method: 'post',
 						header: {

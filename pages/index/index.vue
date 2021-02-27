@@ -1,22 +1,73 @@
 <template>
 	<view class="content">
-		<!-- 聊天窗 -->
-		<view class="chatWindow">
+		<!-- 假设我需要状态栏到文字内容部分还有50px的距离 -->
+		<view class="statusBar" :style="{height:statusBarHeight+50+'px'}">
+			<text>法保智能客服</text>
+			<image class="statusBarBack" src="../../static/index/statusback.png" mode="aspectFill"></image>
 		</view>
-		<!-- 输入盒子实体占位 -->
-		<view class="inputBlock"></view>
-		<!-- 输入盒子 -->
-		<view class="chatInput" :class="[toolBoxShow!=-1?toolBoxShow==true?'toolShow':'toolHide':'']">
-			<view class="inputBox">
-				<image src="https://aiservices.oss-cn-hangzhou.aliyuncs.com/chatroomAI_mp/tools.png" mode="aspectFit" @click="getTools"></image>
-				<view class="textarea">
-					<input type="text" value="" placeholder="请简短清晰的描述您的问题" />
+		<view class="goChat">
+			<image class="robot" src="../../static/index/robot.png" mode="aspectFill"></image>
+			<view class="goChatBox">
+				<view class="logoBox">
+					<image class="logoBack" style="width: 239rpx;height: 70rpx;" src="../../static/index/logoback.png" mode="aspectFill"></image>
+					<image class="logo" style="width: 169rpx;height: 42rpx;" src="../../static/index/logo.png" mode="aspectFill"></image>
+				</view>
+				<view class="channel">
+					<view class="intro">
+						你好，我是法保智能法务,</br>
+						有问题请咨询我！
+					</view>
+					<view class="button" @click="goChat">
+						<text>前往咨询</text>
+						<image style="width: 14rpx;height: 25rpx;" src="../../static/index/go.png" mode="aspectFill"></image>
+					</view>
 				</view>
 			</view>
-			<view class="toolBox">
-				<view class="tool" v-for="(item,index) in tools" :key="index" @click="goTool(item)">
-					<image :src="item.img" mode="aspectFit"></image>
-					<text>{{item.title}}</text>
+		</view>
+		<view class="tools">
+			<view class="tool" v-for="(item,index) in tools" :key="index" @click="goTool(item)">
+				<image style="height: 80rpx;" :src="item.img" mode="heightFix"></image>
+				<text v-text="item.title"></text>
+			</view>
+		</view>
+		<view class="hotQuestion">
+			<text class="title">
+				热门问题
+			</text>
+			<view id="typeBox" class="typeBox" @click="typeShow">
+				<view class="typelist">
+					<view v-for="(item,index) in type" :key="index" v-if="(index-typeChoose)<5&&(index-typeChoose)>=0" class="type"
+					 :class="{'typeChoose':typeChoose==index}" >
+						<text>{{item.title}}</text>
+					</view>
+				</view>
+				<view class="getMoreType">
+					<image src="../../static/index/arrow_up.png" mode="aspectFill"></image>
+				</view>
+			</view>
+			<view class="questionBox" :style="{height:questionHeight+'px'}">
+				<view class="questionList" v-for="(item,index) in question" :key="index">
+					<view class="question">
+						<view class="point"></view>
+						<text>{{item.title}}</text>
+					</view>
+					<image src="../../static/index/arrow_right.png" mode="aspectFill"></image>
+				</view>
+			</view>
+		</view>
+		<view class="mask" v-if="isTypeShow">
+			<view class="typeBox" :style="{top:typeTop +'px'}">
+				<view class="typeName">
+					<text>{{type[typeChoose].title}}</text>
+					<image src="../../static/index/arrow_down.png" mode="aspectFill" @click="typeShow"></image>
+				</view>
+				<view class="typeNameBody" style="height: 80rpx; width: 100%;">
+					
+				</view>
+				<view class="types">
+					<view class="type" :class="{'typeChoose':index==typeChoose}" v-for="(item,index) in type" :key="index" @click="typeSelect(index)">
+						<text>{{item.title}}</text>
+					</view>
 				</view>
 			</view>
 		</view>
@@ -28,6 +79,9 @@
 	export default {
 		data() {
 			return {
+				statusBarHeight: null, //状态栏高度
+				questionHeight: null, //问题展示区域高度
+				typeTop: null, //问题类型高度
 				tools: [{
 					title: '法规搜索',
 					url: '../tool_1/legislation',
@@ -37,161 +91,578 @@
 					url: '../tool_2/case',
 					img: 'https://aiservices.oss-cn-hangzhou.aliyuncs.com/chatroomAI_mp/chatroom/tool_2.png',
 				}, {
-					title: '解纷方式',
-					url: '../tool_3/dispute',
-					img: 'https://aiservices.oss-cn-hangzhou.aliyuncs.com/chatroomAI_mp/chatroom/tool_3.png',
-				}, {
-					title: '辅助工具',
+					title: '费用计算器',
 					url: '../tool_4/aidedtools',
 					img: 'https://aiservices.oss-cn-hangzhou.aliyuncs.com/chatroomAI_mp/chatroom/tool_4.png',
 				}, ],
-				toolBoxShow: -1, //工具栏是否展示，0否1是-1第一次进入页面
+				type: [{
+						title: "婚姻继承"
+					},
+					{
+						title: "借贷纠纷"
+					},
+					{
+						title: "交通事故"
+					},
+					{
+						title: "医疗事故"
+					},
+					{
+						title: "电子商务"
+					},
+					{
+						title: "物业纠纷"
+					},
+					{
+						title: "劳动争议"
+					},
+					{
+						title: "法律程序"
+					},
+					{
+						title: "消费维权"
+					},
+					{
+						title: "知识产权"
+					},
+					{
+						title: "公司业务"
+					},
+					{
+						title: "相邻关系"
+					},
+					{
+						title: "行政纠纷"
+					},
+					{
+						title: "房屋买卖"
+					},
+					{
+						title: "房屋租赁"
+					},
+					{
+						title: "物权纠纷"
+					},
+					{
+						title: "合同纠纷"
+					},
+					{
+						title: "合伙联营"
+					},
+					{
+						title: "涉外商事"
+					},
+					{
+						title: "征地拆迁"
+					},
+					{
+						title: "名誉侵权"
+					},
+					{
+						title: "证券票据"
+					},
+					{
+						title: "刑事自诉"
+					},
+					{
+						title: "侵权纠纷"
+					},
+					{
+						title: "疫情纠纷"
+					},
+				],
+				question: [{
+						title: "发生交通事故后的诉讼时效是多久？"
+					},
+					{
+						title: "发生交通事故后的诉讼时效是多久？"
+					},
+					{
+						title: "发生交通事故后的诉讼时效是多久？"
+					},
+					{
+						title: "发生交通事故后的诉讼时效是多久？"
+					},
+					{
+						title: "发生交通事故后的诉讼时效是多久？"
+					},
+					{
+						title: "发生交通事故后的诉讼时效是多久？"
+					},
+					{
+						title: "发生交通事故后的诉讼时效是多久？"
+					},
+					{
+						title: "发生交通事故后的诉讼时效是多久？"
+					},
+					{
+						title: "发生交通事故后的诉讼时效是多久？"
+					},
+					{
+						title: "发生交通事故后的诉讼时效是多久？"
+					},
+					{
+						title: "发生交通事故后的诉讼时效是多久？"
+					},
+					{
+						title: "发生交通事故后的诉讼时效是多久？"
+					},
+					{
+						title: "发生交通事故后的诉讼时效是多久？"
+					},
+					{
+						title: "发生交通事故后的诉讼时效是多久？"
+					},
+					{
+						title: "发生交通事故后的诉讼时效是多久？"
+					},
+					{
+						title: "发生交通事故后的诉讼时效是多久？"
+					},
+					{
+						title: "发生交通事故后的诉讼时效是多久？"
+					},
+					{
+						title: "发生交通事故后的诉讼时效是多久？"
+					},
+					{
+						title: "发生交通事故后的诉讼时效是多久？"
+					},
+					{
+						title: "发生交通事故后的诉讼时效是多久？"
+					},
+					{
+						title: "发生交通事故后的诉讼时效是多久？"
+					},
+					{
+						title: "发生交通事故后的诉讼时效是多久？"
+					}
+				],
+				typeChoose: 0,
+				isTypeShow: false,
 			}
 		},
 		onLoad() {
+			var _this = this;
+			uni.getSystemInfo({
+				success: function(data) {
+					// 获取手机状态栏高度
+					_this.statusBarHeight = data.statusBarHeight;
+					// 获取问题展示区域高度
+					const screenHeight = data.screenHeight
+					//statusBar高度:_this.statusBarHeight+50;goChat高度:164;tools:79+20;hotQuestion上半部分:26+22+16+27;questionBox自身margin:13+16;预留底部高度:4;
+					_this.questionHeight = screenHeight - (_this.statusBarHeight + 50) - 164 - (79 + 20) - (26 + 22 + 16 + 27) - (
+						13 + 16) - 4
+				}
+			})
 
+			// 获取类型展示区域高度
+			const query = uni.createSelectorQuery().in(_this);
+			query.select('.hotQuestion').boundingClientRect(data => {
+				console.log(data)
+				_this.typeTop = data.top
+			}).exec();
+
+			//获取热门问题类别列表
+			// uni.request({
+			// 	url: 'https://ai.365lawhelp.com/API/Question/getHotQuestionType',
+			// 	data: {},
+			// 	method: 'get',
+			// 	header: {
+			// 		"Content-Type": "application/x-www-form-urlencoded"
+			// 	},
+			// 	dataType: 'json',
+			// }).then(result => {
+			// 	let [err, res] = result;
+			// 	console.log(res)
+			// })
 		},
+		mounted() {},
 		methods: {
-			// 获取工具栏
-			getTools() {
-				if(this.toolBoxShow==-1){
-					this.toolBoxShow = true
-				}else{
-						this.toolBoxShow = !this.toolBoxShow
-				}				
-			},
-			// 跳转到工具
-			goTool(item) {
-				uni.navigateTo({					
-					url:item.url
+			// 跳转到聊天室
+			goChat(){
+				uni.navigateTo({
+					url: '../chatroom/chatrom'
 				});
+			},
+			// 跳转到相应工具
+			goTool(item) {
+				uni.navigateTo({
+					url: item.url
+				});
+			},
+			// 展示问题类型列表
+			typeShow(){
+				this.isTypeShow = !this.isTypeShow
+			},
+			// 热门问题类型选择
+			typeSelect(index){
+				this.typeChoose=index
 			}
-
 		}
 	}
 </script>
 
 <style lang="scss">
 	.content {
-		width: 100%;
-		min-height: 100vh;
-		background-color: #f2f2f2;
+		position: relative;
 
-		.chatWindow {
+		.statusBar {
 			width: 100%;
-			min-height: 92vh;
-			height: 100%;
-			background-color: #f2f2f2;
-		}
+			position: relative;
 
-		.inputBlock {
-			width: 100%;
-			height: 8vh;
-		}
+			/* 调整状态栏标题的位置 */
+			text {
+				position: absolute;
+				z-index: 9999;
+				margin: auto;
+				bottom: 15px;
+				left: 0;
+				right: 0;
+				text-align: center;
 
-		.chatInput {
-			width: 100%;
-			min-height: 8vh;			
-			position: fixed;
-			left: 0;
-			bottom: 0;
-			transform: translateY(200rpx);
-
-			.inputBox {
-				width: 100%;
-				height: 8vh;
-				background-color: #FFFFFF;
-
-				display: flex;
-				align-items: center;
-				justify-content: space-around;
-
-				image {
-					width: 66rpx;
-					height: 66rpx;
-				}
-
-				.textarea {
-					width: 80%;
-					height: 66rpx;
-					padding-left: 20rpx;
-					padding-right: 20rpx;
-					background: #F2F2F2;
-					border-radius: 33rpx;
-					display: flex;
-					align-items: center;
-
-					input {
-						width: 100%;
-					}
-				}
+				font-size: 36rpx;
+				font-family: PingFang SC;
+				font-weight: bold;
+				color: #FFFFFF;
 			}
 
-			.toolBox {
+			.statusBarBack {
 				width: 100%;
-				height: 198rpx;
-				background-color: #FFFFFF;
-				border-top: 2px solid rgba($color: #000000, $alpha: 0.3);
+				position: absolute;
+				z-index: -1;
+				top: 0;
+				left: 0;
+			}
+		}
 
-				display: flex;
-				align-items: center;
-				justify-content: center;
+		.goChat {
+			width: 100%;
+			height: 300rpx;
+			position: relative;
 
-				.tool {
-					width: 120rpx;
-					height: 130rpx;
-					background: #FFFFFF;
-					box-shadow: 0rpx -1rpx 21rpx 0rpx rgba(0, 0, 0, 0.11);
-					border-radius: 10rpx;
-					margin: 0 20rpx;
+			.robot {
+				width: 176rpx;
+				height: 220rpx;
+				position: absolute;
+				z-index: -1;
+				top: 0;
+				left: 50%;
+				transform: translateX(-50%);
+			}
 
-					display: flex;
-					align-items: center;
-					justify-content: center;
-					flex-direction: column;
+			.goChatBox {
+				width: 90%;
+				height: 213rpx;
+				position: absolute;
+				top: 100rpx;
+				left: 50%;
+				transform: translateX(-50%);
 
-					image {
-						width: 60rpx;
-						height: 60rpx;
-						margin-bottom: 10rpx;
+				.logoBox {
+					width: 239rpx;
+					height: 70rpx;
+					position: relative;
+
+					.logoBack {
+						position: absolute;
+						top: 0;
+						left: 0;
 					}
 
-					text {
-						font-size: 20rpx;
+					.logo {
+						position: absolute;
+						top: 18rpx;
+						left: 22rpx;
+					}
+				}
+
+				.channel {
+					width: 100%;
+					height: 143rpx;
+					background-color: #ffffff;
+					border-radius: 0 20rpx 20rpx 20rpx;
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+					box-shadow: 0px 2px 5px #EEEEEE;
+
+					.intro {
+						margin-left: 32rpx;
+						font-size: 32rpx;
 						font-family: PingFang SC;
 						font-weight: bold;
-						color: rgba($color: #000000, $alpha: 0.8);
+						color: rgba($color: #333333, $alpha: 0.9);
+						line-height: 48rpx;
+					}
+
+					.button {
+						margin-right: 32rpx;
+						width: 182rpx;
+						height: 60rpx;
+						background: #157CE4;
+						border-radius: 30rpx;
+						display: flex;
+						align-items: center;
+						justify-content: center;
+
+						text {
+							font-size: 30rpx;
+							font-family: PingFang SC;
+							font-weight: bold;
+							color: #FFFFFF;
+						}
+
+						image {
+							display: block;
+							margin-left: 6rpx;
+						}
 					}
 				}
-			}			
-		}
-		
-		.toolShow {
-			animation: toolShow linear 0.5s;
-			transform: translateY(0);
-		}
-		
-		.toolHide {
-			animation: toolHide linear 0.5s;
-			transform: translateY(200rpx);
-		}
-		
-		@keyframes toolShow {
-			from {
-				transform: translateY(200rpx);
-			}
-		
-			to {
-				transform: translateY(0);
 			}
 		}
-		@keyframes toolHide {
-			from {
-				transform: translateY(0);
+
+		.tools {
+			margin-top: 37rpx;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			.tool {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				margin: 0 45rpx;
+
+				image {
+					display: block;
+					margin-top: 12rpx;
+				}
+
+				text {
+					display: block;
+					margin-top: 20rpx;
+					font-size: 28rpx;
+					font-family: PingFang SC;
+					font-weight: bold;
+					color: rgba($color: #333333, $alpha: 0.9);
+				}
 			}
-		
-			to {
-				transform: translateY(200rpx);
+		}
+
+		.hotQuestion {
+			width: 90%;
+			margin: 48rpx auto 0;
+			position: relative;
+
+			.title {
+				display: block;
+				font-size: 32rpx;
+				font-family: PingFang SC;
+				font-weight: bold;
+				color: #333333;
+				margin-bottom: 30rpx;
+			}
+
+			.typeBox {
+				position: relative;
+				display: flex;
+				align-items: center;
+
+				.typelist {
+					width: 100%;
+					height: 50rpx;
+					overflow: hidden;
+					position: relative;
+
+					.type {
+						position: absolute;
+						top: 0;
+						left: 0;
+						width: 130rpx;
+						height: 50rpx;
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						background: #F2F2F2;
+						border-radius: 25rpx;
+
+						text {
+							font-size: 24rpx;
+							font-family: PingFang SC;
+							font-weight: bold;
+							color: rgba($color: #333333, $alpha: 0.7);
+						}
+					}
+
+					.typeChoose {
+						background: #E5F2FF;
+
+						text {
+							color: #157CE4;
+						}
+					}
+
+					.type:nth-child(2) {
+						left: 154rpx;
+					}
+
+					.type:nth-child(3) {
+						left: 308rpx;
+					}
+
+					.type:nth-child(4) {
+						left: 462rpx;
+					}
+
+					.type:nth-child(5) {
+						left: 616rpx;
+					}
+				}
+
+				.getMoreType {
+					width: 48rpx;
+					height: 50rpx;
+					background-color: #FFFFFF;
+					position: absolute;
+					right: 0;
+					display: flex;
+					align-items: center;
+					justify-content: flex-end;
+
+					image {
+						width: 25rpx;
+						height: 14rpx;
+					}
+				}
+			}
+
+			.questionBox {
+				height: 700rpx;
+				overflow-y: scroll;
+				margin-top: 25rpx;
+				margin-bottom: 30rpx;
+
+				.questionList {
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+					height: 58rpx;
+					border-bottom: 2px solid rgba($color: #000000, $alpha: 0.1);
+
+					.question {
+						display: flex;
+						align-items: center;
+
+						.point {
+							width: 10rpx;
+							height: 10rpx;
+							background: #333333;
+							opacity: 0.5;
+							border-radius: 50%;
+							margin-right: 14rpx;
+						}
+
+						text {
+							display: block;
+							font-size: 26rpx;
+							font-family: PingFang SC;
+							font-weight: bold;
+							color: #333333;
+							opacity: 0.8;
+
+							max-width: 600rpx;
+							text-overflow: ellipsis;
+							overflow: hidden;
+							white-space: nowrap;
+						}
+					}
+
+					image {
+						width: 14rpx;
+						height: 25rpx;
+					}
+				}
+			}
+		}
+
+		.mask {
+			width: 100%;
+			height: 100vh;
+			background-color: rgba($color: #333333, $alpha: 0.1);
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 10;
+
+			.typeBox {
+				position: relative;
+				width: 100%;
+				background-color: #FFFFFF;
+				position: absolute;
+				top: 325px;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				overflow-y: scroll;
+
+				.typeName {
+					width: 90%;
+					background-color: #FFFFFF;
+					position: fixed;
+					padding: 22rpx 0;
+					left: 50%;
+					transform: translateX(-50%);
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+
+					text {
+						font-size: 28rpx;
+						font-family: PingFang SC;
+						font-weight: bold;
+						color: #333333;
+						opacity: 0.9;
+					}
+
+					image {
+						width: 25rpx;
+						height: 14rpx;
+					}
+				}
+
+				.types {
+					width: 90%;
+					margin: 0 auto;
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+					flex-wrap: wrap;
+					.type {
+						width: 154rpx;
+						height: 50rpx;
+						background: #F2F2F2;
+						border-radius: 25rpx;
+						margin-bottom: 24rpx;
+						display: flex;
+						align-items: center;
+						justify-content: center;
+
+						text {
+							font-size: 24rpx;
+							font-family: PingFang SC;
+							font-weight: bold;
+							color: rgba($color: #333333, $alpha: 0.7);
+						}
+					}
+					.typeChoose{
+						background: #E5F2FF;
+						text{
+							color: #157CE4;
+						}
+					}
+				}
 			}
 		}
 	}

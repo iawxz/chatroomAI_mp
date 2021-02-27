@@ -553,7 +553,7 @@
 				});
 				// 计算费用
 				uni.request({
-					url: 'http://ai.365lawhelp.com/API/Cost/getInjuryMoney',
+					url: 'https://ai.365lawhelp.com/API/Cost/getInjuryMoney',
 					data,
 					method: 'post',
 					header: {

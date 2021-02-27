@@ -25,68 +25,102 @@
 /* 透明度 */
 /* 文章场景相关 */
 .content {
-  width: 100%;
-  min-height: 100vh;
-  background-color: #f2f2f2;
+  position: relative;
 }
-.content .chatWindow {
+.content .statusBar {
   width: 100%;
-  min-height: 92vh;
-  height: 100%;
-  background-color: #f2f2f2;
+  position: relative;
+  /* 调整状态栏标题的位置 */
 }
-.content .inputBlock {
-  width: 100%;
-  height: 8vh;
-}
-.content .chatInput {
-  width: 100%;
-  min-height: 8vh;
-  position: fixed;
+.content .statusBar text {
+  position: absolute;
+  z-index: 9999;
+  margin: auto;
+  bottom: 15px;
   left: 0;
-  bottom: 0;
-  -webkit-transform: translateY(200rpx);
-          transform: translateY(200rpx);
+  right: 0;
+  text-align: center;
+  font-size: 36rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #FFFFFF;
 }
-.content .chatInput .inputBox {
+.content .statusBar .statusBarBack {
   width: 100%;
-  height: 8vh;
-  background-color: #FFFFFF;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+}
+.content .goChat {
+  width: 100%;
+  height: 300rpx;
+  position: relative;
+}
+.content .goChat .robot {
+  width: 176rpx;
+  height: 220rpx;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+.content .goChat .goChatBox {
+  width: 90%;
+  height: 213rpx;
+  position: absolute;
+  top: 100rpx;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+.content .goChat .goChatBox .logoBox {
+  width: 239rpx;
+  height: 70rpx;
+  position: relative;
+}
+.content .goChat .goChatBox .logoBox .logoBack {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.content .goChat .goChatBox .logoBox .logo {
+  position: absolute;
+  top: 18rpx;
+  left: 22rpx;
+}
+.content .goChat .goChatBox .channel {
+  width: 100%;
+  height: 143rpx;
+  background-color: #ffffff;
+  border-radius: 0 20rpx 20rpx 20rpx;
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
   -webkit-box-align: center;
   -webkit-align-items: center;
           align-items: center;
-  -webkit-justify-content: space-around;
-          justify-content: space-around;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+  box-shadow: 0px 2px 5px #EEEEEE;
 }
-.content .chatInput .inputBox image {
-  width: 66rpx;
-  height: 66rpx;
+.content .goChat .goChatBox .channel .intro {
+  margin-left: 32rpx;
+  font-size: 32rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: rgba(51, 51, 51, 0.9);
+  line-height: 48rpx;
 }
-.content .chatInput .inputBox .textarea {
-  width: 80%;
-  height: 66rpx;
-  padding-left: 20rpx;
-  padding-right: 20rpx;
-  background: #F2F2F2;
-  border-radius: 33rpx;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-          align-items: center;
-}
-.content .chatInput .inputBox .textarea input {
-  width: 100%;
-}
-.content .chatInput .toolBox {
-  width: 100%;
-  height: 198rpx;
-  background-color: #FFFFFF;
-  border-top: 2px solid rgba(0, 0, 0, 0.3);
+.content .goChat .goChatBox .channel .button {
+  margin-right: 32rpx;
+  width: 182rpx;
+  height: 60rpx;
+  background: #157CE4;
+  border-radius: 30rpx;
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -97,13 +131,18 @@
   -webkit-justify-content: center;
           justify-content: center;
 }
-.content .chatInput .toolBox .tool {
-  width: 120rpx;
-  height: 130rpx;
-  background: #FFFFFF;
-  box-shadow: 0rpx -1rpx 21rpx 0rpx rgba(0, 0, 0, 0.11);
-  border-radius: 10rpx;
-  margin: 0 20rpx;
+.content .goChat .goChatBox .channel .button text {
+  font-size: 30rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #FFFFFF;
+}
+.content .goChat .goChatBox .channel .button image {
+  display: block;
+  margin-left: 6rpx;
+}
+.content .tools {
+  margin-top: 37rpx;
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -113,72 +152,266 @@
   -webkit-box-pack: center;
   -webkit-justify-content: center;
           justify-content: center;
+}
+.content .tools .tool {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
           flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  margin: 0 45rpx;
 }
-.content .chatInput .toolBox .tool image {
-  width: 60rpx;
-  height: 60rpx;
-  margin-bottom: 10rpx;
+.content .tools .tool image {
+  display: block;
+  margin-top: 12rpx;
 }
-.content .chatInput .toolBox .tool text {
-  font-size: 20rpx;
+.content .tools .tool text {
+  display: block;
+  margin-top: 20rpx;
+  font-size: 28rpx;
   font-family: PingFang SC;
   font-weight: bold;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(51, 51, 51, 0.9);
 }
-.content .toolShow {
-  -webkit-animation: toolShow linear 0.5s;
-          animation: toolShow linear 0.5s;
-  -webkit-transform: translateY(0);
-          transform: translateY(0);
+.content .hotQuestion {
+  width: 90%;
+  margin: 48rpx auto 0;
+  position: relative;
 }
-.content .toolHide {
-  -webkit-animation: toolHide linear 0.5s;
-          animation: toolHide linear 0.5s;
-  -webkit-transform: translateY(200rpx);
-          transform: translateY(200rpx);
+.content .hotQuestion .title {
+  display: block;
+  font-size: 32rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 30rpx;
 }
-@-webkit-keyframes toolShow {
-from {
-    -webkit-transform: translateY(200rpx);
-            transform: translateY(200rpx);
+.content .hotQuestion .typeBox {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
 }
-to {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
+.content .hotQuestion .typeBox .typelist {
+  width: 100%;
+  height: 50rpx;
+  overflow: hidden;
+  position: relative;
 }
+.content .hotQuestion .typeBox .typelist .type {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 130rpx;
+  height: 50rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  background: #F2F2F2;
+  border-radius: 25rpx;
 }
-@keyframes toolShow {
-from {
-    -webkit-transform: translateY(200rpx);
-            transform: translateY(200rpx);
+.content .hotQuestion .typeBox .typelist .type text {
+  font-size: 24rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: rgba(51, 51, 51, 0.7);
 }
-to {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
+.content .hotQuestion .typeBox .typelist .typeChoose {
+  background: #E5F2FF;
 }
+.content .hotQuestion .typeBox .typelist .typeChoose text {
+  color: #157CE4;
 }
-@-webkit-keyframes toolHide {
-from {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
+.content .hotQuestion .typeBox .typelist .type:nth-child(2) {
+  left: 154rpx;
 }
-to {
-    -webkit-transform: translateY(200rpx);
-            transform: translateY(200rpx);
+.content .hotQuestion .typeBox .typelist .type:nth-child(3) {
+  left: 308rpx;
 }
+.content .hotQuestion .typeBox .typelist .type:nth-child(4) {
+  left: 462rpx;
 }
-@keyframes toolHide {
-from {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
+.content .hotQuestion .typeBox .typelist .type:nth-child(5) {
+  left: 616rpx;
 }
-to {
-    -webkit-transform: translateY(200rpx);
-            transform: translateY(200rpx);
+.content .hotQuestion .typeBox .getMoreType {
+  width: 48rpx;
+  height: 50rpx;
+  background-color: #FFFFFF;
+  position: absolute;
+  right: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+          justify-content: flex-end;
 }
+.content .hotQuestion .typeBox .getMoreType image {
+  width: 25rpx;
+  height: 14rpx;
+}
+.content .hotQuestion .questionBox {
+  height: 700rpx;
+  overflow-y: scroll;
+  margin-top: 25rpx;
+  margin-bottom: 30rpx;
+}
+.content .hotQuestion .questionBox .questionList {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+  height: 58rpx;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+.content .hotQuestion .questionBox .questionList .question {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+.content .hotQuestion .questionBox .questionList .question .point {
+  width: 10rpx;
+  height: 10rpx;
+  background: #333333;
+  opacity: 0.5;
+  border-radius: 50%;
+  margin-right: 14rpx;
+}
+.content .hotQuestion .questionBox .questionList .question text {
+  display: block;
+  font-size: 26rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #333333;
+  opacity: 0.8;
+  max-width: 600rpx;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.content .hotQuestion .questionBox .questionList image {
+  width: 14rpx;
+  height: 25rpx;
+}
+.content .mask {
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(51, 51, 51, 0.1);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+.content .mask .typeBox {
+  position: relative;
+  width: 100%;
+  background-color: #FFFFFF;
+  position: absolute;
+  top: 325px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow-y: scroll;
+}
+.content .mask .typeBox .typeName {
+  width: 90%;
+  background-color: #FFFFFF;
+  position: fixed;
+  padding: 22rpx 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+}
+.content .mask .typeBox .typeName text {
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #333333;
+  opacity: 0.9;
+}
+.content .mask .typeBox .typeName image {
+  width: 25rpx;
+  height: 14rpx;
+}
+.content .mask .typeBox .types {
+  width: 90%;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+  -webkit-flex-wrap: wrap;
+          flex-wrap: wrap;
+}
+.content .mask .typeBox .types .type {
+  width: 154rpx;
+  height: 50rpx;
+  background: #F2F2F2;
+  border-radius: 25rpx;
+  margin-bottom: 24rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+}
+.content .mask .typeBox .types .type text {
+  font-size: 24rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: rgba(51, 51, 51, 0.7);
+}
+.content .mask .typeBox .types .typeChoose {
+  background: #E5F2FF;
+}
+.content .mask .typeBox .types .typeChoose text {
+  color: #157CE4;
 }
 

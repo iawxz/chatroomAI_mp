@@ -6,7 +6,7 @@
 				<input type="text" v-model="keywords" @input="inputchange" placeholder="请输入检索字段">
 			</view>
 		</view>
-
+		<view class="headerBody"></view>
 		<view class="content">
 			<text class="total">共收录{{total}}份案例</text>
 			<view class="caseBox" v-for="(item,index) in list" :key="index" @click="goDetail(item.id)">
@@ -71,7 +71,7 @@
 					title: '加载中'
 				});
 				uni.request({
-					url: 'http://ai.365lawhelp.com/API/Default/getCaseList',
+					url: 'https://ai.365lawhelp.com/API/Default/getCaseList',
 					data: {
 						pageNum: 1,
 						pageSize: this.pageSize,
@@ -94,6 +94,7 @@
 						}
 						index++
 					}
+					console.log(1)
 					setTimeout(function() {
 						uni.hideLoading();
 					}, 500);
@@ -118,10 +119,12 @@
 		.header {
 			width: 100%;
 			height: 275rpx;
+			position: fixed;
+			z-index: 9999;
 			background-repeat: no-repeat;
 			background-size: cover;
 			background-position: center;
-			position: relative;
+			// position: relative;
 
 			.searchBox {
 				width: 534rpx;
@@ -164,6 +167,11 @@
 			}
 		}
 
+		.headerBody{
+			width: 100%;
+			height: 275rpx;
+		}
+
 		.content {
 			padding: 40rpx 32rpx;
 
@@ -172,7 +180,7 @@
 				font-family: PingFang SC;
 				font-weight: bold;
 				color: #000000;
-				opacity: 0.7;
+				opacity: 0.7;	
 				display: block;
 				margin-bottom: 24rpx;
 			}
