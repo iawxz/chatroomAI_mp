@@ -34,14 +34,14 @@
 			<text class="title">
 				热门问题
 			</text>
-			<view id="typeBox" class="typeBox" @click="typeShow">
+			<view id="typeBox" class="typeBox">
 				<view class="typelist">
 					<view v-for="(item,index) in type" :key="index" v-if="(index-typeChoose)<5&&(index-typeChoose)>=0" class="type"
-					 :class="{'typeChoose':typeChoose==index}" >
+					 :class="{'typeChoose':typeChoose_out==index}" @click="typeSelect_out(index)">
 						<text>{{item.title}}</text>
 					</view>
 				</view>
-				<view class="getMoreType">
+				<view class="getMoreType" @click="typeShow">
 					<image src="../../static/index/arrow_up.png" mode="aspectFill"></image>
 				</view>
 			</view>
@@ -58,14 +58,20 @@
 		<view class="mask" v-if="isTypeShow">
 			<view class="typeBox" :style="{top:typeTop +'px'}">
 				<view class="typeName">
-					<text>{{type[typeChoose].title}}</text>
-					<image src="../../static/index/arrow_down.png" mode="aspectFill" @click="typeShow"></image>
+					<text v-if="typeChoose==typeChoose_out">{{type[typeChoose].title}}</text>
+					<text v-else>{{type[typeChoose_out].title}}</text>
+					<view class="closeMoreType" @click="typeShow">
+						<image src="../../static/index/arrow_down.png" mode="aspectFill"></image>
+					</view>
 				</view>
-				<view class="typeNameBody" style="height: 80rpx; width: 100%;">
-					
-				</view>
-				<view class="types">
+				<view class="typeNameBody" style="height: 100rpx; width: 100%;"></view>
+				<view class="types" v-if="typeChoose==typeChoose_out">
 					<view class="type" :class="{'typeChoose':index==typeChoose}" v-for="(item,index) in type" :key="index" @click="typeSelect(index)">
+						<text>{{item.title}}</text>
+					</view>
+				</view>
+				<view class="types" v-else>
+					<view class="type" :class="{'typeChoose':index==typeChoose_out}" v-for="(item,index) in type" :key="index" @click="typeSelect(index)">
 						<text>{{item.title}}</text>
 					</view>
 				</view>
@@ -239,6 +245,7 @@
 					}
 				],
 				typeChoose: 0,
+				typeChoose_out: 0,
 				isTypeShow: false,
 			}
 		},
@@ -280,7 +287,7 @@
 		mounted() {},
 		methods: {
 			// 跳转到聊天室
-			goChat(){
+			goChat() {
 				uni.navigateTo({
 					url: '../chatroom/chatrom'
 				});
@@ -292,12 +299,21 @@
 				});
 			},
 			// 展示问题类型列表
-			typeShow(){
+			typeShow() {
 				this.isTypeShow = !this.isTypeShow
 			},
 			// 热门问题类型选择
-			typeSelect(index){
-				this.typeChoose=index
+			// 下拉框内选择
+			typeSelect(index) {				
+				this.typeChoose = index
+				this.typeChoose_out = index
+			},
+			// 外部选项卡选择
+			typeSelect_out(index){
+				if(index == this.typeChoose+4){
+					return
+				}
+				this.typeChoose_out = index
 			}
 		}
 	}
@@ -626,10 +642,20 @@
 						opacity: 0.9;
 					}
 
-					image {
-						width: 25rpx;
-						height: 14rpx;
+					.closeMoreType {
+						width: 48rpx;
+						height: 50rpx;
+						background-color: #FFFFFF;						
+						display: flex;
+						align-items: center;
+						justify-content: flex-end;
+
+						image {
+							width: 25rpx;
+							height: 14rpx;
+						}
 					}
+
 				}
 
 				.types {
@@ -639,6 +665,7 @@
 					align-items: center;
 					justify-content: space-between;
 					flex-wrap: wrap;
+
 					.type {
 						width: 154rpx;
 						height: 50rpx;
@@ -656,9 +683,11 @@
 							color: rgba($color: #333333, $alpha: 0.7);
 						}
 					}
-					.typeChoose{
+
+					.typeChoose {
 						background: #E5F2FF;
-						text{
+
+						text {
 							color: #157CE4;
 						}
 					}
