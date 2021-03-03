@@ -135,7 +135,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;function _slicedToArray(arr, i) {return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();}function _nonIterableRest() {throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}function _unsupportedIterableToArray(o, minLen) {if (!o) return;if (typeof o === "string") return _arrayLikeToArray(o, minLen);var n = Object.prototype.toString.call(o).slice(8, -1);if (n === "Object" && o.constructor) n = o.constructor.name;if (n === "Map" || n === "Set") return Array.from(o);if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);}function _arrayLikeToArray(arr, len) {if (len == null || len > arr.length) len = arr.length;for (var i = 0, arr2 = new Array(len); i < len; i++) {arr2[i] = arr[i];}return arr2;}function _iterableToArrayLimit(arr, i) {if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return;var _arr = [];var _n = true;var _d = false;var _e = undefined;try {for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {_arr.push(_s.value);if (i && _arr.length === i) break;}} catch (err) {_d = true;_e = err;} finally {try {if (!_n && _i["return"] != null) _i["return"]();} finally {if (_d) throw _e;}}return _arr;}function _arrayWithHoles(arr) {if (Array.isArray(arr)) return arr;} //
 //
 //
 //
@@ -238,155 +238,14 @@ var _default =
         url: '../tool_4/aidedtools',
         img: 'https://aiservices.oss-cn-hangzhou.aliyuncs.com/chatroomAI_mp/chatroom/tool_4.png' }],
 
-      type: [{
-        title: "婚姻继承" },
-
-      {
-        title: "借贷纠纷" },
-
-      {
-        title: "交通事故" },
-
-      {
-        title: "医疗事故" },
-
-      {
-        title: "电子商务" },
-
-      {
-        title: "物业纠纷" },
-
-      {
-        title: "劳动争议" },
-
-      {
-        title: "法律程序" },
-
-      {
-        title: "消费维权" },
-
-      {
-        title: "知识产权" },
-
-      {
-        title: "公司业务" },
-
-      {
-        title: "相邻关系" },
-
-      {
-        title: "行政纠纷" },
-
-      {
-        title: "房屋买卖" },
-
-      {
-        title: "房屋租赁" },
-
-      {
-        title: "物权纠纷" },
-
-      {
-        title: "合同纠纷" },
-
-      {
-        title: "合伙联营" },
-
-      {
-        title: "涉外商事" },
-
-      {
-        title: "征地拆迁" },
-
-      {
-        title: "名誉侵权" },
-
-      {
-        title: "证券票据" },
-
-      {
-        title: "刑事自诉" },
-
-      {
-        title: "侵权纠纷" },
-
-      {
-        title: "疫情纠纷" }],
-
-
-      question: [{
-        title: "发生交通事故后的诉讼时效是多久？" },
-
-      {
-        title: "发生交通事故后的诉讼时效是多久？" },
-
-      {
-        title: "发生交通事故后的诉讼时效是多久？" },
-
-      {
-        title: "发生交通事故后的诉讼时效是多久？" },
-
-      {
-        title: "发生交通事故后的诉讼时效是多久？" },
-
-      {
-        title: "发生交通事故后的诉讼时效是多久？" },
-
-      {
-        title: "发生交通事故后的诉讼时效是多久？" },
-
-      {
-        title: "发生交通事故后的诉讼时效是多久？" },
-
-      {
-        title: "发生交通事故后的诉讼时效是多久？" },
-
-      {
-        title: "发生交通事故后的诉讼时效是多久？" },
-
-      {
-        title: "发生交通事故后的诉讼时效是多久？" },
-
-      {
-        title: "发生交通事故后的诉讼时效是多久？" },
-
-      {
-        title: "发生交通事故后的诉讼时效是多久？" },
-
-      {
-        title: "发生交通事故后的诉讼时效是多久？" },
-
-      {
-        title: "发生交通事故后的诉讼时效是多久？" },
-
-      {
-        title: "发生交通事故后的诉讼时效是多久？" },
-
-      {
-        title: "发生交通事故后的诉讼时效是多久？" },
-
-      {
-        title: "发生交通事故后的诉讼时效是多久？" },
-
-      {
-        title: "发生交通事故后的诉讼时效是多久？" },
-
-      {
-        title: "发生交通事故后的诉讼时效是多久？" },
-
-      {
-        title: "发生交通事故后的诉讼时效是多久？" },
-
-      {
-        title: "发生交通事故后的诉讼时效是多久？" }],
-
-
+      type: [],
+      question: [],
       typeChoose: 0,
       typeChoose_out: 0,
       isTypeShow: false };
 
   },
-  onLoad: function onLoad() {
+  onLoad: function onLoad() {var _this2 = this;
     var _this = this;
     uni.getSystemInfo({
       success: function success(data) {
@@ -403,23 +262,25 @@ var _default =
     // 获取类型展示区域高度
     var query = uni.createSelectorQuery().in(_this);
     query.select('.hotQuestion').boundingClientRect(function (data) {
-      console.log(data);
       _this.typeTop = data.top;
     }).exec();
 
     //获取热门问题类别列表
-    // uni.request({
-    // 	url: 'https://ai.365lawhelp.com/API/Question/getHotQuestionType',
-    // 	data: {},
-    // 	method: 'get',
-    // 	header: {
-    // 		"Content-Type": "application/x-www-form-urlencoded"
-    // 	},
-    // 	dataType: 'json',
-    // }).then(result => {
-    // 	let [err, res] = result;
-    // 	console.log(res)
-    // })
+    uni.request({
+      url: 'https://ai.365lawhelp.com/API/Question/getHotQuestionType',
+      data: {},
+      method: 'get',
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded" },
+
+      dataType: 'json' }).
+    then(function (result) {var _result = _slicedToArray(
+      result, 2),err = _result[0],res = _result[1];
+      _this2.type = res.data;
+
+      _this2.getQuestion(_this2.type[0].id);
+
+    });
   },
   mounted: function mounted() {},
   methods: {
@@ -440,17 +301,42 @@ var _default =
       this.isTypeShow = !this.isTypeShow;
     },
     // 热门问题类型选择
-    // 下拉框内选择
-    typeSelect: function typeSelect(index) {
+    // ··下拉框内选择
+    typeSelect: function typeSelect(index, parentid) {
       this.typeChoose = index;
       this.typeChoose_out = index;
+      this.getQuestion(parentid);
     },
-    // 外部选项卡选择
-    typeSelect_out: function typeSelect_out(index) {
+    // ··外部选项卡选择
+    typeSelect_out: function typeSelect_out(index, parentid) {
       if (index == this.typeChoose + 4) {
         return;
       }
       this.typeChoose_out = index;
+      this.getQuestion(parentid);
+    },
+    // 获取改类型热门问题列表
+    getQuestion: function getQuestion(id) {var _this3 = this;
+      uni.request({
+        url: 'http://ai.365lawhelp.com/API/Question/getHotQuestionChildType',
+        data: {
+          parentid: id },
+
+        method: 'post',
+        header: {
+          "Content-Type": "application/x-www-form-urlencoded" },
+
+        dataType: 'json' }).
+      then(function (result) {var _result2 = _slicedToArray(
+        result, 2),err = _result2[0],res = _result2[1];
+        _this3.question = res.data;
+      });
+    },
+    // 查看问题详情
+    goDetail: function goDetail(question) {
+      uni.navigateTo({
+        url: '/pages/chatroom/chatroom?question=' + encodeURIComponent(JSON.stringify(question)) });
+
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

@@ -37,8 +37,8 @@
 			<view id="typeBox" class="typeBox">
 				<view class="typelist">
 					<view v-for="(item,index) in type" :key="index" v-if="(index-typeChoose)<5&&(index-typeChoose)>=0" class="type"
-					 :class="{'typeChoose':typeChoose_out==index}" @click="typeSelect_out(index)">
-						<text>{{item.title}}</text>
+					 :class="{'typeChoose':typeChoose_out==index}" @click="typeSelect_out(index,item.id)">
+						<text>{{item.name}}</text>
 					</view>
 				</view>
 				<view class="getMoreType" @click="typeShow">
@@ -46,10 +46,10 @@
 				</view>
 			</view>
 			<view class="questionBox" :style="{height:questionHeight+'px'}">
-				<view class="questionList" v-for="(item,index) in question" :key="index">
+				<view class="questionList" v-for="(item,index) in question" :key="index" @click="goDetail(item.name)">
 					<view class="question">
 						<view class="point"></view>
-						<text>{{item.title}}</text>
+						<text>{{item.name}}</text>
 					</view>
 					<image src="../../static/index/arrow_right.png" mode="aspectFill"></image>
 				</view>
@@ -66,13 +66,13 @@
 				</view>
 				<view class="typeNameBody" style="height: 100rpx; width: 100%;"></view>
 				<view class="types" v-if="typeChoose==typeChoose_out">
-					<view class="type" :class="{'typeChoose':index==typeChoose}" v-for="(item,index) in type" :key="index" @click="typeSelect(index)">
-						<text>{{item.title}}</text>
+					<view class="type" :class="{'typeChoose':index==typeChoose}" v-for="(item,index) in type" :key="index" @click="typeSelect(index,item.id)">
+						<text>{{item.name}}</text>
 					</view>
 				</view>
 				<view class="types" v-else>
-					<view class="type" :class="{'typeChoose':index==typeChoose_out}" v-for="(item,index) in type" :key="index" @click="typeSelect(index)">
-						<text>{{item.title}}</text>
+					<view class="type" :class="{'typeChoose':index==typeChoose_out}" v-for="(item,index) in type" :key="index" @click="typeSelect(index,item.id)">
+						<text>{{item.name}}</text>
 					</view>
 				</view>
 			</view>
@@ -101,149 +101,8 @@
 					url: '../tool_4/aidedtools',
 					img: 'https://aiservices.oss-cn-hangzhou.aliyuncs.com/chatroomAI_mp/chatroom/tool_4.png',
 				}, ],
-				type: [{
-						title: "婚姻继承"
-					},
-					{
-						title: "借贷纠纷"
-					},
-					{
-						title: "交通事故"
-					},
-					{
-						title: "医疗事故"
-					},
-					{
-						title: "电子商务"
-					},
-					{
-						title: "物业纠纷"
-					},
-					{
-						title: "劳动争议"
-					},
-					{
-						title: "法律程序"
-					},
-					{
-						title: "消费维权"
-					},
-					{
-						title: "知识产权"
-					},
-					{
-						title: "公司业务"
-					},
-					{
-						title: "相邻关系"
-					},
-					{
-						title: "行政纠纷"
-					},
-					{
-						title: "房屋买卖"
-					},
-					{
-						title: "房屋租赁"
-					},
-					{
-						title: "物权纠纷"
-					},
-					{
-						title: "合同纠纷"
-					},
-					{
-						title: "合伙联营"
-					},
-					{
-						title: "涉外商事"
-					},
-					{
-						title: "征地拆迁"
-					},
-					{
-						title: "名誉侵权"
-					},
-					{
-						title: "证券票据"
-					},
-					{
-						title: "刑事自诉"
-					},
-					{
-						title: "侵权纠纷"
-					},
-					{
-						title: "疫情纠纷"
-					},
-				],
-				question: [{
-						title: "发生交通事故后的诉讼时效是多久？"
-					},
-					{
-						title: "发生交通事故后的诉讼时效是多久？"
-					},
-					{
-						title: "发生交通事故后的诉讼时效是多久？"
-					},
-					{
-						title: "发生交通事故后的诉讼时效是多久？"
-					},
-					{
-						title: "发生交通事故后的诉讼时效是多久？"
-					},
-					{
-						title: "发生交通事故后的诉讼时效是多久？"
-					},
-					{
-						title: "发生交通事故后的诉讼时效是多久？"
-					},
-					{
-						title: "发生交通事故后的诉讼时效是多久？"
-					},
-					{
-						title: "发生交通事故后的诉讼时效是多久？"
-					},
-					{
-						title: "发生交通事故后的诉讼时效是多久？"
-					},
-					{
-						title: "发生交通事故后的诉讼时效是多久？"
-					},
-					{
-						title: "发生交通事故后的诉讼时效是多久？"
-					},
-					{
-						title: "发生交通事故后的诉讼时效是多久？"
-					},
-					{
-						title: "发生交通事故后的诉讼时效是多久？"
-					},
-					{
-						title: "发生交通事故后的诉讼时效是多久？"
-					},
-					{
-						title: "发生交通事故后的诉讼时效是多久？"
-					},
-					{
-						title: "发生交通事故后的诉讼时效是多久？"
-					},
-					{
-						title: "发生交通事故后的诉讼时效是多久？"
-					},
-					{
-						title: "发生交通事故后的诉讼时效是多久？"
-					},
-					{
-						title: "发生交通事故后的诉讼时效是多久？"
-					},
-					{
-						title: "发生交通事故后的诉讼时效是多久？"
-					},
-					{
-						title: "发生交通事故后的诉讼时效是多久？"
-					}
-				],
+				type: [],
+				question: [],
 				typeChoose: 0,
 				typeChoose_out: 0,
 				isTypeShow: false,
@@ -265,24 +124,26 @@
 
 			// 获取类型展示区域高度
 			const query = uni.createSelectorQuery().in(_this);
-			query.select('.hotQuestion').boundingClientRect(data => {
-				console.log(data)
+			query.select('.hotQuestion').boundingClientRect(data => {				
 				_this.typeTop = data.top
 			}).exec();
 
 			//获取热门问题类别列表
-			// uni.request({
-			// 	url: 'https://ai.365lawhelp.com/API/Question/getHotQuestionType',
-			// 	data: {},
-			// 	method: 'get',
-			// 	header: {
-			// 		"Content-Type": "application/x-www-form-urlencoded"
-			// 	},
-			// 	dataType: 'json',
-			// }).then(result => {
-			// 	let [err, res] = result;
-			// 	console.log(res)
-			// })
+			uni.request({
+				url: 'https://ai.365lawhelp.com/API/Question/getHotQuestionType',
+				data: {},
+				method: 'get',
+				header: {
+					"Content-Type": "application/x-www-form-urlencoded"
+				},
+				dataType: 'json',
+			}).then(result => {
+				let [err, res] = result;
+				this.type=res.data
+				
+				this.getQuestion(this.type[0].id)
+				
+			})
 		},
 		mounted() {},
 		methods: {
@@ -303,17 +164,42 @@
 				this.isTypeShow = !this.isTypeShow
 			},
 			// 热门问题类型选择
-			// 下拉框内选择
-			typeSelect(index) {				
+			// ··下拉框内选择
+			typeSelect(index,parentid) {								
 				this.typeChoose = index
 				this.typeChoose_out = index
+				this.getQuestion(parentid)
 			},
-			// 外部选项卡选择
-			typeSelect_out(index){
+			// ··外部选项卡选择
+			typeSelect_out(index,parentid){				
 				if(index == this.typeChoose+4){
 					return
 				}
 				this.typeChoose_out = index
+				this.getQuestion(parentid)
+			},			
+			// 获取改类型热门问题列表
+			getQuestion(id){
+				uni.request({
+					url: 'http://ai.365lawhelp.com/API/Question/getHotQuestionChildType',
+					data: {
+						parentid:id
+					},
+					method: 'post',
+					header: {
+						"Content-Type": "application/x-www-form-urlencoded"
+					},
+					dataType: 'json',
+				}).then(result => {
+					let [err, res] = result;					
+					this.question = res.data					
+				})
+			},
+			// 查看问题详情
+			goDetail(question){
+				uni.navigateTo({
+					url: '/pages/chatroom/chatroom?question=' + encodeURIComponent(JSON.stringify(question))
+				});
 			}
 		}
 	}

@@ -9,7 +9,7 @@
 				}
 			}
 		},{
-			"path": "pages/chatroom/chatrom",
+			"path": "pages/chatroom/chatroom",
 			"style": {
 				"navigationBarTitleText": "法保网智能客服"
 			}
